@@ -33,7 +33,6 @@ export interface AboutCard extends BaseCard {
     logo: string;
   };
   status?: string;
-  calendarLink?: string;
   socials?: {
     linkedin: string;
     github: string;
@@ -83,10 +82,31 @@ export interface ChatCard extends BaseCard {
   summary?: string;
 }
 
-export type WalletCard = AboutCard | ExperienceCard | ProjectCard | ChatCard;
+export type CardItem = AboutCard | ExperienceCard | ProjectCard | ChatCard;
 
-export interface WalletSection {
+export interface CardSectionGroup {
   id: CardSection;
   label: string;
-  cards: WalletCard[];
+  cards: CardItem[];
+}
+
+// View switcher
+export type ViewId = "home" | "writings" | "goals";
+
+// Writings
+export interface Writing {
+  id: number;
+  title: string;
+  subtitle: string;
+  created_at: string;
+  content: string;
+}
+
+// Goals / Resolutions
+export interface Goal {
+  id: number;
+  title: string;
+  description: string | null;
+  completed: boolean;
+  created_at: string;
 }

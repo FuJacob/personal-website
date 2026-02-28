@@ -24,11 +24,15 @@ export function CardShell({
 }: CardShellProps) {
   return (
     <div
-      className={cn("relative overflow-hidden rounded-lg", className)}
-      style={{
-        backgroundColor: bgColor,
-        border: `1.5px solid ${borderColor}`,
-      }}
+      className={cn(
+        "relative overflow-hidden rounded-lg border-[1.5px] border-(--card-module-border)",
+        "transition-[border-color,box-shadow] duration-200 ease-out",
+        "[&:hover]:border-(--card-module-border-hover) [&:hover]:shadow-[0_0_10px_oklch(0.78_0.02_75/0.5)]",
+        isExpanded &&
+          "border-(--card-module-border-hover)! shadow-[0_0_10px_oklch(0.78_0.02_75/0.5)]",
+        className
+      )}
+      style={{ backgroundColor: bgColor }}
     >
       <div className="absolute right-3.5 top-2 bottom-2 w-px border-r border-dashed border-current opacity-30" />
 

@@ -2,12 +2,12 @@
 
 import { useState, useCallback, useEffect } from "react";
 
-interface WalletState {
+interface CardState {
   expandedCardId: string | null;
 }
 
-export function useWalletState() {
-  const [state, setState] = useState<WalletState>({
+export function useCardState() {
+  const [state, setState] = useState<CardState>({
     expandedCardId: null,
   });
 

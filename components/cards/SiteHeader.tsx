@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Dices } from "lucide-react";
+import { useFont } from "@/components/FontProvider";
 
 function XIcon({ className }: { className?: string }) {
   return (
@@ -17,7 +18,9 @@ function XIcon({ className }: { className?: string }) {
   );
 }
 
-interface WalletHeaderProps {
+type ViewId = "home" | "writings" | "goals";
+
+interface SiteHeaderProps {
   name: string;
   icon?: string;
   subtitle: string;
@@ -27,18 +30,28 @@ interface WalletHeaderProps {
     twitter: string;
     email: string;
   };
-  calendarLink: string;
+  activeView: ViewId;
+  onViewChange: (view: ViewId) => void;
   className?: string;
 }
 
-export function WalletHeader({
+const views: { id: ViewId; label: string }[] = [
+  { id: "home", label: "Home" },
+  { id: "writings", label: "Writings" },
+  { id: "goals", label: "Goals" },
+];
+
+export function SiteHeader({
   name,
   icon,
   subtitle,
   socials,
-  calendarLink,
+  activeView,
+  onViewChange,
   className,
-}: WalletHeaderProps) {
+}: SiteHeaderProps) {
+  const { randomizeFont } = useFont();
+
   return (
     <header className={cn("py-1.5 sm:py-2", className)}>
       <div className="flex items-start justify-between gap-2">
@@ -96,15 +109,37 @@ export function WalletHeader({
             >
               <Mail className="h-4 w-4" />
             </a>
+            <button
+              type="button"
+              onClick={randomizeFont}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="Randomize font"
+              title="Randomize font"
+            >
+              <Dices className="h-4 w-4" />
+            </button>
           </div>
-          <a
-            href={calendarLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-caption text-muted-foreground hover:text-foreground transition-colors"
-          >
-            book a meeting →
-          </a>
+          <nav className="flex items-center gap-1.5 text-caption">
+            {views.map((view, i) => (
+              <span key={view.id} className="flex items-center gap-1.5">
+                {i > 0 && (
+                  <span className="text-muted-foreground/40 select-none">|</span>
+                )}
+                <button
+                  type="button"
+                  onClick={() => onViewChange(view.id)}
+                  className={cn(
+                    "transition-colors",
+                    activeView === view.id
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  {view.label}
+                </button>
+              </span>
+            ))}
+          </nav>
         </div>
       </div>
     </header>

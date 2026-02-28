@@ -1,4 +1,4 @@
-import { WalletContainer } from "@/components/wallet";
+import { CardContainer } from "@/components/cards";
 
 const personSchema = {
   "@context": "https://schema.org",
@@ -38,7 +38,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
-      <WalletContainer />
+      <CardContainer />
     </>
   );
 }

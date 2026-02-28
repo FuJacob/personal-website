@@ -13,10 +13,10 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ card, isExpanded, onClick }: ProjectCardProps) {
-  const bgColor = "var(--wallet-module-bg)";
+  const bgColor = "var(--card-module-bg)";
   const textColor = "text-foreground";
   const mutedColor = "text-muted-foreground";
-  const borderColor = "var(--wallet-module-border)";
+  const borderColor = "var(--card-module-border)";
   const summary = card.summary || card.description.split("\n\n")[0] || card.tagline;
   const imageSrc = card.media?.type === "image" ? card.media.src : card.image;
   const imageAlt = card.media?.caption || card.title;

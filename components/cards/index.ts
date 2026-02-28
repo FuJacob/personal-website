@@ -1,6 +1,5 @@
-export { WalletContainer } from "./WalletContainer";
-export { WalletHeader } from "./WalletHeader";
-export { WalletCard } from "./WalletCard";
+export { CardContainer } from "./CardContainer";
+export { SiteHeader } from "./SiteHeader";
 export { CardStack } from "./CardStack";
 export { AboutCard } from "./AboutCard";
 export { ExperienceCard } from "./ExperienceCard";
@@ -8,3 +7,7 @@ export { ProjectCard } from "./ProjectCard";
 export { SectionDivider } from "./SectionDivider";
 export { CardShell } from "./CardShell";
 export { CardExpansion } from "./CardExpansion";
+export { WritingCard } from "./WritingCard";
+export { WritingsView } from "./WritingsView";
+export { GoalCard } from "./GoalCard";
+export { GoalsView } from "./GoalsView";

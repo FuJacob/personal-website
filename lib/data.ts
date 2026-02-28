@@ -3,14 +3,13 @@ import {
   ExperienceCard,
   ProjectCard,
   ChatCard,
-  WalletSection,
+  CardSectionGroup,
 } from "./types";
 
 export const headerInfo = {
   name: "Jacob Fu",
   subtitle: "UWaterloo CS",
   icon: "/inner-content/me.png",
-  calendarLink: "https://calendar.app.google/QCosZGTnWDNeiCuz6",
   socials: {
     linkedin: "https://www.linkedin.com/in/fujacob/",
     github: "https://github.com/fujacob/",
@@ -205,7 +204,7 @@ export const chatCard: ChatCard = {
   colors: { light: "#ddd6fe", dark: "#7c3aed" },
 };
 
-export const walletSections: WalletSection[] = [
+export const cardSections: CardSectionGroup[] = [
   { id: "about", label: "About Me", cards: [personalCard, educationCard] },
   { id: "experiences", label: "Work", cards: experiences },
   { id: "projects", label: "Projects", cards: projects },

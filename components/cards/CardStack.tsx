@@ -1,13 +1,13 @@
 "use client";
 
-import { WalletCard as WalletCardType } from "@/lib/types";
+import { CardItem } from "@/lib/types";
 import { AboutCard } from "./AboutCard";
 import { ExperienceCard } from "./ExperienceCard";
 import { ProjectCard } from "./ProjectCard";
 import { ChatCard } from "./ChatCard";
 
 interface CardStackProps {
-  cards: WalletCardType[];
+  cards: CardItem[];
   expandedCardId: string | null;
   onCardClick: (cardId: string) => void;
 }
@@ -28,7 +28,7 @@ export function CardStack({ cards, expandedCardId, onCardClick }: CardStackProps
   );
 }
 
-function renderCard(card: WalletCardType, isExpanded: boolean, onClick: () => void) {
+function renderCard(card: CardItem, isExpanded: boolean, onClick: () => void) {
   switch (card.type) {
     case "about":
       return <AboutCard card={card} isExpanded={isExpanded} onClick={onClick} />;

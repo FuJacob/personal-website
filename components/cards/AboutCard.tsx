@@ -12,10 +12,10 @@ interface AboutCardProps {
 }
 
 export function AboutCard({ card, isExpanded, onClick }: AboutCardProps) {
-  const bgColor = "var(--wallet-module-bg)";
+  const bgColor = "var(--card-module-bg)";
   const textColor = "text-foreground";
   const mutedColor = "text-muted-foreground";
-  const borderColor = "var(--wallet-module-border)";
+  const borderColor = "var(--card-module-border)";
   const summary =
     card.summary ||
     "Waterloo CS student focused on infrastructure, distributed systems, and product-minded engineering. Previously interned at HubSpot and Bridgewell.";

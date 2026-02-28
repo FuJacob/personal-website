@@ -1,16 +1,43 @@
 import type { Metadata, Viewport } from "next";
-import { Sour_Gummy } from "next/font/google";
+import {
+  Sour_Gummy,
+  Lacquer,
+  Averia_Serif_Libre,
+  Space_Mono,
+} from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { FontProvider } from "@/components/FontProvider";
 import "./globals.css";
 
 const sourGummy = Sour_Gummy({
   weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-inter",
+  variable: "--font-sour-gummy",
   subsets: ["latin"],
   display: "swap",
   preload: true,
   adjustFontFallback: true,
+});
+
+const lacquer = Lacquer({
+  weight: ["400"],
+  variable: "--font-lacquer",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const averia = Averia_Serif_Libre({
+  weight: ["300", "400", "700"],
+  variable: "--font-averia",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const spaceMono = Space_Mono({
+  weight: ["400", "700"],
+  variable: "--font-space-mono",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -86,8 +113,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${sourGummy.variable} font-sans antialiased`}>
-        <ThemeProvider>{children}</ThemeProvider>
+      <body
+        className={`${sourGummy.variable} ${lacquer.variable} ${averia.variable} ${spaceMono.variable} font-sans antialiased`}
+      >
+        <ThemeProvider>
+          <FontProvider>{children}</FontProvider>
+        </ThemeProvider>
         <SpeedInsights />
       </body>
     </html>

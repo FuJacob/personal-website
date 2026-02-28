@@ -5,13 +5,13 @@
 
 /* ═══════════════════════════════════════════════════════════════════════════
    SWISS STYLE DESIGN SYSTEM
-   Typography: Inter (Neo-grotesque)
+   Typography: Sour Gummy (default)
    Principles: Grid system, asymmetry, high contrast, clinical precision
    ═══════════════════════════════════════════════════════════════════════════ */
 
 @theme inline {
   /* Typography */
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-sour-gummy), ui-sans-serif, system-ui, sans-serif;
   
   /* Colors - mapped to CSS variables */
   --color-background: var(--background);
@@ -83,10 +83,10 @@
   --input: oklch(0.88 0 0);
   --ring: oklch(0.09 0 0);
 
-  /* Wallet surface accents */
-  --wallet-grid-color: #e5e7eb;
-  --wallet-module-bg: oklch(0.95 0.02 255);
-  --wallet-module-border: oklch(0.78 0.03 255);
+  /* Card surface accents */
+  --card-module-bg: oklch(0.95 0.02 255);
+  --card-module-border: oklch(0.78 0.03 255);
+  --card-module-border-hover: oklch(0.60 0.04 255);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -120,9 +120,9 @@
   --input: oklch(0.42 0.01 75);
   --ring: oklch(0.90 0.005 75);
 
-  --wallet-grid-color: #7b7369;
-  --wallet-module-bg: oklch(0.36 0.016 75);
-  --wallet-module-border: oklch(0.62 0.016 75);
+  --card-module-bg: oklch(0.36 0.016 75);
+  --card-module-border: oklch(0.62 0.016 75);
+  --card-module-border-hover: oklch(0.78 0.02 75);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -147,17 +147,9 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   SWISS STYLE UTILITIES
+   UTILITIES
    ═══════════════════════════════════════════════════════════════════════════ */
 @layer utilities {
-  /* Typography scale - massive contrast between sizes */
-  .text-display {
-    font-size: 3rem;
-    line-height: 1;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
-  
   .text-headline {
     font-size: 1.625rem;
     line-height: 1.2;
@@ -177,22 +169,6 @@
     font-weight: 500;
     letter-spacing: 0.02em;
     text-transform: uppercase;
-  }
-  
-  /* Card styles - minimal, geometric */
-  .swiss-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-xl);
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  }
-  
-  /* Grid background for development (optional) */
-  .swiss-grid {
-    background-image:
-      linear-gradient(to right, var(--border) 1px, transparent 1px),
-      linear-gradient(to bottom, var(--border) 1px, transparent 1px);
-    background-size: 1rem 1rem;
   }
 }
 

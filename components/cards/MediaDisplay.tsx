@@ -16,7 +16,7 @@ export function MediaDisplay({
   forceAspectRatio = true,
   sizes = "(max-width: 640px) 100vw, 720px",
 }: MediaDisplayProps) {
-  const bgColor = `var(--wallet-module-bg, ${colors.light})`;
+  const bgColor = `var(--card-module-bg, ${colors.light})`;
   const aspectRatioClass = forceAspectRatio ? "aspect-video" : "";
 
   if (media.type === "youtube") {

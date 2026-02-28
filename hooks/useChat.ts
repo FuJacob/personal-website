@@ -9,7 +9,7 @@ export function useChat() {
   const [messages, setMessages] = useState<Message[]>([
     { text: "Hey! I'm Jacob's AI assistant. Ask me anything about his work!", isUser: false },
     { text: "What are you working on right now?", isUser: true },
-    { text: "I'm currently building this portfolio using Next.js and the Gemini API. It features a custom wallet-style interface with real-time AI chat integration.", isUser: false }
+    { text: "I'm currently building this portfolio using Next.js and the Gemini API. It features a custom card-style interface with real-time AI chat integration.", isUser: false }
   ]);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);

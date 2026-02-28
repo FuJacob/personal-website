@@ -12,10 +12,10 @@ interface ChatCardProps {
 }
 
 export function ChatCard({ card, isExpanded, onClick }: ChatCardProps) {
-  const bgColor = "var(--wallet-module-bg)";
+  const bgColor = "var(--card-module-bg)";
   const textColor = "text-foreground";
   const mutedColor = "text-muted-foreground";
-  const borderColor = "var(--wallet-module-border)";
+  const borderColor = "var(--card-module-border)";
   const summary =
     card.summary ||
     "Ask about internships, projects, and technical strengths. You can get a concise walkthrough of my recent work and preferred stacks.";
