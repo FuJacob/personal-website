@@ -74,12 +74,12 @@ export function SiteHeader({
         </div>
 
         <div className="flex w-36 shrink-0 items-end self-stretch flex-col justify-between pt-2 sm:w-40">
-          <div className="flex items-end gap-1.5 sm:gap-2">
+          <div className="flex items-end gap-3 sm:gap-4">
             <a
               href={socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="p-2 -m-2 text-muted-foreground hover:text-foreground transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin className="h-4 w-4" />
@@ -88,7 +88,7 @@ export function SiteHeader({
               href={socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="p-2 -m-2 text-muted-foreground hover:text-foreground transition-colors"
               aria-label="GitHub"
             >
               <Github className="h-4 w-4" />
@@ -97,14 +97,14 @@ export function SiteHeader({
               href={socials.twitter}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="X"
+              className="p-2 -m-2 text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="X (formerly Twitter)"
             >
               <XIcon className="h-4 w-4" />
             </a>
             <a
               href={`mailto:${socials.email}`}
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="p-2 -m-2 text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Email"
             >
               <Mail className="h-4 w-4" />
@@ -112,7 +112,7 @@ export function SiteHeader({
             <button
               type="button"
               onClick={randomizeFont}
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="p-2 -m-2 text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Randomize font"
               title="Randomize font"
             >
@@ -123,16 +123,18 @@ export function SiteHeader({
             {views.map((view, i) => (
               <span key={view.id} className="flex items-center gap-1.5">
                 {i > 0 && (
-                  <span className="text-muted-foreground/40 select-none">|</span>
+                  <span className="text-muted-foreground/40 select-none">
+                    |
+                  </span>
                 )}
                 <button
                   type="button"
                   onClick={() => onViewChange(view.id)}
                   className={cn(
-                    "transition-colors",
+                    "py-1 px-1.5 transition-colors",
                     activeView === view.id
                       ? "text-foreground"
-                      : "text-muted-foreground hover:text-foreground"
+                      : "text-muted-foreground hover:text-foreground",
                   )}
                 >
                   {view.label}

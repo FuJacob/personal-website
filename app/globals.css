@@ -12,7 +12,7 @@
 @theme inline {
   /* Typography */
   --font-sans: var(--font-sour-gummy), ui-sans-serif, system-ui, sans-serif;
-  
+
   /* Colors - mapped to CSS variables */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -32,7 +32,7 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  
+
   /* Swiss Style: Minimal border radius - geometric precision */
   --radius-sm: 0.125rem;
   --radius-md: 0.25rem;
@@ -48,36 +48,36 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 :root {
   --radius: 0.25rem;
-  
+
   /* Pure white background */
   --background: oklch(1 0 0);
   --foreground: oklch(0.09 0 0);
-  
+
   /* Cards - slightly off-white for subtle depth */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.09 0 0);
-  
+
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.09 0 0);
-  
+
   /* Primary - pure black */
   --primary: oklch(0 0 0);
   --primary-foreground: oklch(1 0 0);
-  
+
   /* Secondary - light gray */
   --secondary: oklch(0.96 0 0);
   --secondary-foreground: oklch(0.09 0 0);
-  
+
   /* Muted - for secondary text */
   --muted: oklch(0.96 0 0);
   --muted-foreground: oklch(0.45 0 0);
-  
+
   /* Accent */
   --accent: oklch(0.96 0 0);
   --accent-foreground: oklch(0.09 0 0);
-  
+
   --destructive: oklch(0.55 0.22 25);
-  
+
   /* Borders - subtle lines */
   --border: oklch(0.88 0 0);
   --input: oklch(0.88 0 0);
@@ -86,7 +86,7 @@
   /* Card surface accents */
   --card-module-bg: oklch(0.95 0.02 255);
   --card-module-border: oklch(0.78 0.03 255);
-  --card-module-border-hover: oklch(0.60 0.04 255);
+  --card-module-border-hover: oklch(0.6 0.04 255);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -118,7 +118,7 @@
 
   --border: oklch(0.42 0.01 75);
   --input: oklch(0.42 0.01 75);
-  --ring: oklch(0.90 0.005 75);
+  --ring: oklch(0.9 0.005 75);
 
   --card-module-bg: oklch(0.36 0.016 75);
   --card-module-border: oklch(0.62 0.016 75);
@@ -132,16 +132,22 @@
   * {
     @apply border-border outline-ring/50;
   }
-  
+
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
+
   /* Swiss Style: Flush-left text alignment by default */
-  h1, h2, h3, h4, h5, h6, p {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
     text-align: left;
   }
 }
@@ -176,7 +182,8 @@
    ANIMATED SPOTLIGHT GRID BACKGROUND
    ═══════════════════════════════════════════════════════════════════════════ */
 @keyframes spotlight {
-  0%, 100% {
+  0%,
+  100% {
     --x: 50%;
     --y: 50%;
   }

@@ -14,7 +14,7 @@ export async function GET() {
     console.error("Failed to fetch writings:", error);
     return NextResponse.json(
       { error: "Failed to fetch writings" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

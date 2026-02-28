@@ -14,7 +14,7 @@ export async function GET() {
     console.error("Failed to fetch goals:", error);
     return NextResponse.json(
       { error: "Failed to fetch goals" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

@@ -30,7 +30,7 @@ export function CardShell({
         "[&:hover]:border-(--card-module-border-hover) [&:hover]:shadow-[0_0_10px_oklch(0.78_0.02_75/0.5)]",
         isExpanded &&
           "border-(--card-module-border-hover)! shadow-[0_0_10px_oklch(0.78_0.02_75/0.5)]",
-        className
+        className,
       )}
       style={{ backgroundColor: bgColor }}
     >
@@ -44,7 +44,7 @@ export function CardShell({
           "w-full p-2 pr-7 sm:p-2.5 sm:pr-8 text-left leading-tight",
           "transition-[filter] duration-150 motion-reduce:transition-none",
           "hover:brightness-[1.02]",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/25"
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/25",
         )}
       >
         {header}

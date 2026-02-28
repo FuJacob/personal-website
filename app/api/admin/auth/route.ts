@@ -8,15 +8,12 @@ export async function POST(request: NextRequest) {
     if (!adminPassword) {
       return NextResponse.json(
         { error: "Admin password not configured" },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
     if (password !== adminPassword) {
-      return NextResponse.json(
-        { error: "Invalid password" },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: "Invalid password" }, { status: 401 });
     }
 
     // Set a simple auth cookie
@@ -31,9 +28,6 @@ export async function POST(request: NextRequest) {
 
     return response;
   } catch {
-    return NextResponse.json(
-      { error: "Invalid request" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "Invalid request" }, { status: 400 });
   }
 }

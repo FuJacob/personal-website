@@ -149,10 +149,7 @@ export default function AdminWritingPage() {
   if (!isAuthed) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-background px-4">
-        <form
-          onSubmit={handleLogin}
-          className="w-full max-w-xs space-y-4"
-        >
+        <form onSubmit={handleLogin} className="w-full max-w-xs space-y-4">
           <h1 className="text-headline text-foreground">Admin</h1>
           <p className="text-body text-muted-foreground">
             Enter password to continue.
@@ -167,9 +164,7 @@ export default function AdminWritingPage() {
             className="w-full rounded-lg border border-border bg-secondary px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
           />
 
-          {authError && (
-            <p className="text-sm text-destructive">{authError}</p>
-          )}
+          {authError && <p className="text-sm text-destructive">{authError}</p>}
 
           <button
             type="submit"

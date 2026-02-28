@@ -11,7 +11,7 @@ import { FontProvider } from "@/components/FontProvider";
 import "./globals.css";
 
 const sourGummy = Sour_Gummy({
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "700"],
   variable: "--font-sour-gummy",
   subsets: ["latin"],
   display: "swap",
@@ -24,13 +24,15 @@ const lacquer = Lacquer({
   variable: "--font-lacquer",
   subsets: ["latin"],
   display: "swap",
+  preload: false,
 });
 
 const averia = Averia_Serif_Libre({
-  weight: ["300", "400", "700"],
+  weight: ["400", "700"],
   variable: "--font-averia",
   subsets: ["latin"],
   display: "swap",
+  preload: false,
 });
 
 const spaceMono = Space_Mono({
@@ -38,63 +40,33 @@ const spaceMono = Space_Mono({
   variable: "--font-space-mono",
   subsets: ["latin"],
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jacobfu.com"),
   title: {
     default: "Jacob Fu",
     template: "%s | Jacob Fu",
   },
   description:
-    "Jacob Fu is a Computer Science student at University of Waterloo building products that people actually use. Previously at HubSpot and Bridgewell.",
-  keywords: [
-    "Jacob Fu",
-    "Software Engineer",
-    "University of Waterloo",
-    "HubSpot",
-    "Full Stack Developer",
-    "React",
-    "Next.js",
-    "TypeScript",
-  ],
-  authors: [{ name: "Jacob Fu" }],
-  creator: "Jacob Fu",
-  applicationName: "Jacob Fu Portfolio",
-  category: "technology",
-  alternates: {
-    canonical: "https://jacobfu.com",
-  },
-  manifest: "/manifest.webmanifest",
+    "CS student at UWaterloo. Previously engineering at HubSpot and Bridgewell.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://jacobfu.com",
-    title: "Jacob Fu | Software Engineer",
-    description:
-      "CS student at UWaterloo. Building products that people actually use.",
+    title: "Jacob Fu",
+    description: "CS student at UWaterloo. Previously engineering at HubSpot.",
     siteName: "Jacob Fu",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: ["/me.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jacob Fu | Software Engineer",
-    description:
-      "CS student at UWaterloo. Building products that people actually use.",
     creator: "@fujacobb",
-    images: ["/og-image.png"],
+    // Next.js automatically inherits title/description from openGraph
+    // so you don't need to duplicate them here.
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
-  metadataBase: new URL("https://jacobfu.com"),
+  // Removed explicit robots config since Next.js defaults to index/follow anyway
 };
 
 export const viewport: Viewport = {

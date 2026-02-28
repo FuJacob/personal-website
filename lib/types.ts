@@ -11,7 +11,7 @@ export interface CardMedia {
 // Color scheme for cards - light version for light mode, dark for dark mode
 export interface CardColors {
   light: string; // Background in light mode (lighter shade, works with dark text)
-  dark: string;  // Background in dark mode (darker shade, works with white text)
+  dark: string; // Background in dark mode (darker shade, works with white text)
 }
 
 export interface BaseCard {

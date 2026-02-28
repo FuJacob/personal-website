@@ -23,7 +23,7 @@ export function useCardState() {
     setState((prev) =>
       prev.expandedCardId === cardId
         ? { expandedCardId: null }
-        : { expandedCardId: cardId }
+        : { expandedCardId: cardId },
     );
   }, []);
 

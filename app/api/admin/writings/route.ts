@@ -23,7 +23,7 @@ export async function GET(request: NextRequest) {
     console.error("Failed to fetch writings:", error);
     return NextResponse.json(
       { error: "Failed to fetch writings" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
     if (!title || !content) {
       return NextResponse.json(
         { error: "Title and content are required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
     console.error("Failed to create writing:", error);
     return NextResponse.json(
       { error: "Failed to create writing" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -72,7 +72,7 @@ export async function DELETE(request: NextRequest) {
     if (!id) {
       return NextResponse.json(
         { error: "Writing ID is required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -84,7 +84,7 @@ export async function DELETE(request: NextRequest) {
     console.error("Failed to delete writing:", error);
     return NextResponse.json(
       { error: "Failed to delete writing" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
