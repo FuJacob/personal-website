@@ -5,20 +5,8 @@ import { Goal } from "@/lib/types";
 import { SectionDivider } from "./SectionDivider";
 import { GoalCard } from "./GoalCard";
 
-export function GoalsView() {
-  const [goals, setGoals] = useState<Goal[]>([]);
+export function GoalsView({ goals }: { goals: Goal[] }) {
   const [expandedId, setExpandedId] = useState<number | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch("/api/goals")
-      .then((res) => res.json())
-      .then((data) => {
-        if (Array.isArray(data)) setGoals(data);
-      })
-      .catch(console.error)
-      .finally(() => setLoading(false));
-  }, []);
 
   const toggleGoal = useCallback((id: number) => {
     setExpandedId((prev) => (prev === id ? null : id));
@@ -34,17 +22,6 @@ export function GoalsView() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [expandedId]);
-
-  if (loading) {
-    return (
-      <div className="space-y-1 sm:space-y-1.5">
-        <SectionDivider label="2026 Resolutions" />
-        <div className="py-8 text-center text-sm text-muted-foreground">
-          Loading...
-        </div>
-      </div>
-    );
-  }
 
   if (goals.length === 0) {
     return (

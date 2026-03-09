@@ -1,4 +1,6 @@
 import { CardContainer } from "@/components/cards";
+import { getDb } from "@/lib/db";
+import { Writing, Goal } from "@/lib/types";
 
 const personSchema = {
   "@context": "https://schema.org",
@@ -27,7 +29,27 @@ const websiteSchema = {
   inLanguage: "en-US",
 };
 
-export default function Home() {
+export default async function Home() {
+  let writings: Writing[] = [];
+  let goals: Goal[] = [];
+  try {
+    const sql = getDb();
+    [writings, goals] = await Promise.all([
+      sql`
+        SELECT id, title, subtitle, created_at, content
+        FROM writings
+        ORDER BY created_at DESC
+      ` as unknown as Promise<Writing[]>,
+      sql`
+        SELECT id, title, description, completed, created_at
+        FROM goals
+        ORDER BY created_at ASC
+      ` as unknown as Promise<Goal[]>,
+    ]);
+  } catch {
+    // Fall back to empty lists if DB is unavailable
+  }
+
   return (
     <>
       <script
@@ -38,7 +60,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
-      <CardContainer />
+      <CardContainer initialWritings={writings} initialGoals={goals} />
     </>
   );
 }

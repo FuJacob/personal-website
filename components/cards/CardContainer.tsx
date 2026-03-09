@@ -7,6 +7,7 @@ import { useCardState } from "@/hooks/useCardState";
 import { SiteHeader } from "./SiteHeader";
 import { SectionDivider } from "./SectionDivider";
 import { CardStack } from "./CardStack";
+import { Writing, Goal } from "@/lib/types";
 
 const WritingsView = dynamic(
   () => import("./WritingsView").then((m) => ({ default: m.WritingsView })),
@@ -17,7 +18,13 @@ const GoalsView = dynamic(
 
 type ViewId = "home" | "writings" | "goals";
 
-export function CardContainer() {
+export function CardContainer({
+  initialWritings = [],
+  initialGoals = [],
+}: {
+  initialWritings?: Writing[];
+  initialGoals?: Goal[];
+}) {
   const { expandedCardId, toggleCard } = useCardState();
   const [activeView, setActiveView] = useState<ViewId>("home");
   const visibleSections = cardSections.filter(
@@ -93,9 +100,9 @@ export function CardContainer() {
             </div>
           )}
 
-          {activeView === "writings" && <WritingsView />}
+          {activeView === "writings" && <WritingsView writings={initialWritings} />}
 
-          {activeView === "goals" && <GoalsView />}
+          {activeView === "goals" && <GoalsView goals={initialGoals} />}
         </div>
       </main>
     </div>

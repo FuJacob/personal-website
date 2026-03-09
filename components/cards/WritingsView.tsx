@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Writing } from "@/lib/types";
@@ -8,24 +8,12 @@ import { cn } from "@/lib/utils";
 import { SectionDivider } from "./SectionDivider";
 import { WritingCard } from "./WritingCard";
 
-export function WritingsView() {
-  const [writings, setWritings] = useState<Writing[]>([]);
+export function WritingsView({ writings }: { writings: Writing[] }) {
   const [expandedId, setExpandedId] = useState<number | null>(null);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetch("/api/writings")
-      .then((res) => res.json())
-      .then((data) => {
-        if (Array.isArray(data)) setWritings(data);
-      })
-      .catch(console.error)
-      .finally(() => setLoading(false));
-  }, []);
-
-  const toggleWriting = useCallback((id: number) => {
+  const toggleWriting = (id: number) => {
     setExpandedId((prev) => (prev === id ? null : id));
-  }, []);
+  };
 
   // Escape to collapse
   useEffect(() => {
@@ -39,17 +27,6 @@ export function WritingsView() {
   }, [expandedId]);
 
   const expandedWriting = writings.find((w) => w.id === expandedId);
-
-  if (loading) {
-    return (
-      <div className="space-y-1 sm:space-y-1.5">
-        <SectionDivider label="Writings" />
-        <div className="py-8 text-center text-sm text-muted-foreground">
-          Loading...
-        </div>
-      </div>
-    );
-  }
 
   if (writings.length === 0) {
     return (
