@@ -42,16 +42,24 @@ function formatDate(dateString: string): string {
 // ─── Markdown renderer shared between compose preview and existing writing page ───
 const mdComponents: React.ComponentProps<typeof ReactMarkdown>["components"] = {
   h1: ({ children }) => (
-    <h1 className="text-xl font-bold text-foreground mb-3 mt-4 first:mt-0">{children}</h1>
+    <h1 className="text-xl font-bold text-foreground mb-3 mt-4 first:mt-0">
+      {children}
+    </h1>
   ),
   h2: ({ children }) => (
-    <h2 className="text-lg font-semibold text-foreground mb-2 mt-3">{children}</h2>
+    <h2 className="text-lg font-semibold text-foreground mb-2 mt-3">
+      {children}
+    </h2>
   ),
   h3: ({ children }) => (
-    <h3 className="text-base font-semibold text-foreground mb-2 mt-3">{children}</h3>
+    <h3 className="text-base font-semibold text-foreground mb-2 mt-3">
+      {children}
+    </h3>
   ),
   p: ({ children }) => (
-    <p className="text-[15px] leading-relaxed text-muted-foreground mb-3">{children}</p>
+    <p className="text-[15px] leading-relaxed text-muted-foreground mb-3">
+      {children}
+    </p>
   ),
   a: ({ href, children }) => (
     <a
@@ -89,7 +97,9 @@ const mdComponents: React.ComponentProps<typeof ReactMarkdown>["components"] = {
     );
   },
   pre: ({ children }) => (
-    <pre className="bg-background rounded-md overflow-x-auto my-3">{children}</pre>
+    <pre className="bg-background rounded-md overflow-x-auto my-3">
+      {children}
+    </pre>
   ),
   blockquote: ({ children }) => (
     <blockquote className="border-l-2 border-border pl-3 text-muted-foreground italic my-3">
@@ -160,7 +170,9 @@ function WritingsTab() {
   const handleDelete = async (id: number) => {
     if (!confirm("Delete this writing?")) return;
     try {
-      const res = await fetch(`/api/admin/writings?id=${id}`, { method: "DELETE" });
+      const res = await fetch(`/api/admin/writings?id=${id}`, {
+        method: "DELETE",
+      });
       if (res.ok) setWritings((prev) => prev.filter((w) => w.id !== id));
     } catch (err) {
       console.error("Failed to delete:", err);
@@ -196,7 +208,10 @@ function WritingsTab() {
             />
           ) : (
             <div className="min-h-50 rounded-lg border border-border bg-secondary px-4 py-3">
-              <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={mdComponents}
+              >
                 {content || "*Nothing to preview*"}
               </ReactMarkdown>
             </div>
@@ -223,7 +238,9 @@ function WritingsTab() {
 
       {/* List */}
       <div className="space-y-3">
-        <h2 className="text-caption text-muted-foreground">Existing Writings</h2>
+        <h2 className="text-caption text-muted-foreground">
+          Existing Writings
+        </h2>
         {loadingWritings ? (
           <p className="text-sm text-muted-foreground">Loading...</p>
         ) : writings.length === 0 ? (
@@ -236,7 +253,9 @@ function WritingsTab() {
                 className="flex items-center justify-between gap-3 rounded-lg border border-border bg-secondary px-3 py-2"
               >
                 <div className="min-w-0">
-                  <div className="truncate text-sm font-medium text-foreground">{w.title}</div>
+                  <div className="truncate text-sm font-medium text-foreground">
+                    {w.title}
+                  </div>
                   <div className="text-xs text-muted-foreground">
                     {formatDate(w.created_at)}
                     {w.subtitle && ` · ${w.subtitle}`}
@@ -328,7 +347,9 @@ function GoalsTab() {
   const handleDelete = async (id: number) => {
     if (!confirm("Delete this goal?")) return;
     try {
-      const res = await fetch(`/api/admin/goals?id=${id}`, { method: "DELETE" });
+      const res = await fetch(`/api/admin/goals?id=${id}`, {
+        method: "DELETE",
+      });
       if (res.ok) setGoals((prev) => prev.filter((g) => g.id !== id));
     } catch (err) {
       console.error("Failed to delete goal:", err);
@@ -426,7 +447,9 @@ function ResumeTab() {
         setStatus("success");
         setFile(null);
         // Reset file input
-        const input = document.getElementById("resume-file") as HTMLInputElement | null;
+        const input = document.getElementById(
+          "resume-file",
+        ) as HTMLInputElement | null;
         if (input) input.value = "";
       } else {
         const data = await res.json().catch(() => ({}));
@@ -445,7 +468,8 @@ function ResumeTab() {
     <div className="space-y-6">
       <p className="text-sm text-muted-foreground">
         Upload a PDF to replace{" "}
-        <span className="font-mono text-foreground">jacob-fu-resume.pdf</span> in R2.
+        <span className="font-mono text-foreground">jacob-fu-resume.pdf</span>{" "}
+        in R2.
       </p>
 
       <form onSubmit={handleUpload} className="space-y-4">
@@ -528,7 +552,9 @@ export default function AdminDashboard() {
       <div className="flex min-h-screen items-center justify-center bg-background px-4">
         <form onSubmit={handleLogin} className="w-full max-w-xs space-y-4">
           <h1 className="text-headline text-foreground">Admin</h1>
-          <p className="text-body text-muted-foreground">Enter password to continue.</p>
+          <p className="text-body text-muted-foreground">
+            Enter password to continue.
+          </p>
 
           <input
             type="password"

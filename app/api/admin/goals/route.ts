@@ -66,7 +66,10 @@ export async function PATCH(request: NextRequest) {
     const id = searchParams.get("id");
 
     if (!id) {
-      return NextResponse.json({ error: "Goal ID is required" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Goal ID is required" },
+        { status: 400 },
+      );
     }
 
     const { completed } = await request.json();
@@ -110,7 +113,10 @@ export async function DELETE(request: NextRequest) {
     const id = searchParams.get("id");
 
     if (!id) {
-      return NextResponse.json({ error: "Goal ID is required" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Goal ID is required" },
+        { status: 400 },
+      );
     }
 
     const sql = getDb();

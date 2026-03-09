@@ -68,9 +68,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Resume upload error:", error);
-    return NextResponse.json(
-      { error: "Upload failed" },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: "Upload failed" }, { status: 500 });
   }
 }
