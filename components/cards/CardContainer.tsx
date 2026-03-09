@@ -9,11 +9,11 @@ import { SectionDivider } from "./SectionDivider";
 import { CardStack } from "./CardStack";
 import { Writing, Goal } from "@/lib/types";
 
-const WritingsView = dynamic(
-  () => import("./WritingsView").then((m) => ({ default: m.WritingsView })),
+const WritingsView = dynamic(() =>
+  import("./WritingsView").then((m) => ({ default: m.WritingsView })),
 );
-const GoalsView = dynamic(
-  () => import("./GoalsView").then((m) => ({ default: m.GoalsView })),
+const GoalsView = dynamic(() =>
+  import("./GoalsView").then((m) => ({ default: m.GoalsView })),
 );
 
 type ViewId = "home" | "writings" | "goals";
@@ -100,7 +100,9 @@ export function CardContainer({
             </div>
           )}
 
-          {activeView === "writings" && <WritingsView writings={initialWritings} />}
+          {activeView === "writings" && (
+            <WritingsView writings={initialWritings} />
+          )}
 
           {activeView === "goals" && <GoalsView goals={initialGoals} />}
         </div>

@@ -54,7 +54,7 @@ export function WritingsView({ writings }: { writings: Writing[] }) {
               className={cn(
                 "transition-all duration-300 ease-out",
                 isHidden && "h-0 opacity-0 overflow-hidden pointer-events-none",
-                isExpanded && "relative z-10"
+                isExpanded && "relative z-10",
               )}
             >
               <WritingCard
@@ -69,7 +69,7 @@ export function WritingsView({ writings }: { writings: Writing[] }) {
                   "grid transition-[grid-template-rows,opacity] duration-300 ease-out",
                   isExpanded
                     ? "grid-rows-[1fr] opacity-100"
-                    : "grid-rows-[0fr] opacity-0"
+                    : "grid-rows-[0fr] opacity-0",
                 )}
               >
                 <div className="min-h-0 overflow-hidden">
@@ -143,9 +143,7 @@ export function WritingsView({ writings }: { writings: Writing[] }) {
                               {children}
                             </blockquote>
                           ),
-                          hr: () => (
-                            <hr className="border-border my-4" />
-                          ),
+                          hr: () => <hr className="border-border my-4" />,
                           strong: ({ children }) => (
                             <strong className="font-semibold text-foreground">
                               {children}
