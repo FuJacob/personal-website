@@ -30,6 +30,8 @@ export function CardContainer({
   const visibleSections = cardSections.filter(
     (section) => section.id !== "chat",
   );
+  const contentPanelClassName =
+    "h-[clamp(32rem,calc(100dvh-9rem),56rem)] overflow-y-auto overscroll-contain pr-1 [scrollbar-gutter:stable]";
 
   return (
     <div className="relative flex min-h-screen w-full items-center justify-center py-6 sm:py-8">
@@ -83,8 +85,8 @@ export function CardContainer({
           onViewChange={setActiveView}
         />
 
-        {/* Fixed-height content area — prevents header from jumping between views */}
-        <div className="min-h-135">
+        {/* Keep the switchable view area at a stable height and scroll within it. */}
+        <div className={contentPanelClassName}>
           {activeView === "home" && (
             <div className="space-y-1 sm:space-y-1.5">
               {visibleSections.map((section) => (

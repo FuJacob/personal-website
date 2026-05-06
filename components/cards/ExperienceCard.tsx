@@ -2,27 +2,8 @@
 
 import { ExperienceCard as ExperienceCardType } from "@/lib/types";
 import Image from "next/image";
-import { Snowflake, Sun, Leaf, Flower2 } from "lucide-react";
 import { CardShell } from "./CardShell";
 import { CardExpansion } from "./CardExpansion";
-
-const SEASON_ICON_CLASS = "h-3 w-3 shrink-0 opacity-70";
-
-function SeasonIcon({ period }: { period: string }) {
-  const season = period.split(" ")[0]?.toLowerCase();
-  switch (season) {
-    case "winter":
-      return <Snowflake className={SEASON_ICON_CLASS} aria-hidden="true" />;
-    case "summer":
-      return <Sun className={SEASON_ICON_CLASS} aria-hidden="true" />;
-    case "fall":
-      return <Leaf className={SEASON_ICON_CLASS} aria-hidden="true" />;
-    case "spring":
-      return <Flower2 className={SEASON_ICON_CLASS} aria-hidden="true" />;
-    default:
-      return null;
-  }
-}
 
 interface ExperienceCardProps {
   card: ExperienceCardType;
@@ -39,10 +20,14 @@ export function ExperienceCard({
   const textColor = "text-foreground";
   const mutedColor = "text-muted-foreground";
   const borderColor = "var(--card-module-border)";
-  const summary = card.summary || card.description.split("\n\n")[0] || card.role;
+  const summary =
+    card.summary || card.description.split("\n\n")[0] || card.role;
   const imageSrc = card.media?.type === "image" ? card.media.src : card.logo;
   const imageAlt = card.media?.caption || card.company;
-  const roleLabel = "Software Engineering Intern";
+  const roleLabel = card.role;
+  const metaLabel = card.location
+    ? `${card.location} — ${card.period}`
+    : card.period;
 
   return (
     <CardShell
@@ -66,15 +51,14 @@ export function ExperienceCard({
             <div className={`truncate text-base font-semibold ${textColor}`}>
               {card.company}
               <span className={`ml-1 text-[11px] font-medium ${mutedColor}`}>
-                — {roleLabel}
+                {roleLabel}
               </span>
             </div>
           </div>
           <span
-            className={`flex shrink-0 items-center gap-1 text-[11px] font-medium uppercase tracking-wide ${mutedColor}`}
+            className={`shrink-0 text-[11px] font-medium uppercase tracking-wide ${mutedColor}`}
           >
-            <SeasonIcon period={card.period} />
-            {card.period}
+            {metaLabel}
           </span>
         </div>
       }

@@ -18,7 +18,7 @@ export function AboutCard({ card, isExpanded, onClick }: AboutCardProps) {
   const borderColor = "var(--card-module-border)";
   const summary =
     card.summary ||
-    "Waterloo CS student focused on infrastructure, distributed systems, and product-minded engineering. Previously interned at HubSpot and Bridgewell.";
+    "Waterloo CS student focused on infrastructure, distributed systems, and product-minded engineering. Previously interned at HubSpot.";
   const imageSrc = card.media?.type === "image" ? card.media.src : card.avatar;
   const imageAlt = card.media?.caption || card.name;
 

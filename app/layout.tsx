@@ -50,13 +50,13 @@ export const metadata: Metadata = {
     template: "%s | Jacob Fu",
   },
   description:
-    "CS student at UWaterloo. Previously engineering at HubSpot and Bridgewell.",
+    "CS student at UWaterloo.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://jacobfu.com",
     title: "Jacob Fu",
-    description: "CS student at UWaterloo. Previously engineering at HubSpot.",
+    description: "CS student at UWaterloo.",
     siteName: "Jacob Fu",
     images: ["/me.png"],
   },

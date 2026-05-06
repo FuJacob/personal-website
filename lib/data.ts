@@ -30,7 +30,7 @@ export const personalCard: AboutCard = {
     "Hi! I'm Jacob and I like building products that users love. Outside work, I like playing volleyball and badminton :)",
   media: {
     type: "image",
-    src: "/inner-content/me.png",
+    src: "/inner-content/me-2.jpg",
     caption: "Jacob Fu",
   },
 };
@@ -50,43 +50,66 @@ export const educationCard: AboutCard = {
   status: "Bachelor of Computer Science",
   summary:
     "I study CS at UWaterloo. I'm really interested in infrastructure, distributed systems, and shipping fast. Would love to get into the startup space.",
+  media: {
+    type: "image",
+    src: "/inner-content/waterloo-2.jpg",
+    caption: "University of Waterloo",
+  },
 };
 
 export const experiences: ExperienceCard[] = [
+  {
+    id: "exp-ramp",
+    type: "experience",
+    section: "experiences",
+    company: "Ramp",
+    logo: "/companies/ramp.jpeg",
+    role: "Software Engineer",
+    period: "Fall 2026",
+    location: "New York, NY",
+    summary:
+      "Joining Ramp as an incoming software engineering intern in Fall 2026.",
+    description:
+      "Incoming software engineering intern at Ramp.\n\nAdding this role now to keep the timeline current. Team and project details can be filled in once they are finalized.",
+    bullets: [],
+    colors: { light: "#dcfce7", dark: "#15803d" },
+  },
+  {
+    id: "exp-uber",
+    type: "experience",
+    section: "experiences",
+    company: "Uber",
+    logo: "/companies/uber.png",
+    role: "Software Engineer",
+    period: "Summer 2026",
+    location: "Sunnyvale, CA",
+    summary:
+      "Joining Uber as an incoming software engineering intern in Summer 2026.",
+    description:
+      "Incoming software engineering intern at Uber.\n\nAdding this role now to keep the experience list up to date. Team and project details can be added once they are public or finalized.",
+    bullets: [],
+    colors: { light: "#e5e7eb", dark: "#374151" },
+  },
   {
     id: "exp-hubspot-2",
     type: "experience",
     section: "experiences",
     company: "HubSpot",
     logo: "/companies/hubspot.png",
-    role: "Software Engineering Intern (AI-Editor Platform)",
+    role: "Software Engineer",
     period: "Winter 2026",
+    location: "Boston, MA",
     summary:
-      "Currently working on HubSpot's new AI Content Editor so marketers can create beautiful layouts with natural language.",
+      "Worked on HubSpot's new AI Content Editor that allows marketers can create beautiful layouts with natural language.",
     description:
       "I worked on HubSpot's AI Platform team for the Content Editor.\n\nI owned orchestration across prompt parsing, module generation, and validation. The flow improved consistency and speed for marketing teams building production pages.",
     bullets: [],
     colors: { light: "#ffd8b5", dark: "#f97316" },
     media: {
       type: "image",
-      src: "/inner-content/content-editor.png",
+      src: "/inner-content/breeze.webp",
       caption: "HubSpot Content Editor UI",
     },
-  },
-  {
-    id: "exp-kaimz",
-    type: "experience",
-    section: "experiences",
-    company: "Kaimz Inc",
-    logo: "/companies/kaimz.png",
-    role: "Software Engineering Intern (Security Platform)",
-    period: "Fall 2025",
-    summary:
-      "Shipped a security monitoring agent in Go, enabling real-time collection of system logs and network events with automated AWS S3 storage pipelines.",
-    description:
-      "I built a Go agent that collected logs from 20+ devices.\n\nI added JWT auth and streamed records to S3. I shipped a RAG assistant for analysts. Incident investigation time dropped 70%.",
-    bullets: [],
-    colors: { light: "#e9d5ff", dark: "#9333ea" },
   },
   {
     id: "exp-hubspot-1",
@@ -94,8 +117,9 @@ export const experiences: ExperienceCard[] = [
     section: "experiences",
     company: "HubSpot",
     logo: "/companies/hubspot.png",
-    role: "Software Engineering Intern (Sales Workspace)",
+    role: "Software Engineer",
     period: "Summer 2025",
+    location: "Boston, MA",
     summary:
       "Shipped HubSpot's next-gen Sales Workspace, improving user-workflow efficiency by 15% across 200k+ daily active sales reps.",
     description:
@@ -104,33 +128,47 @@ export const experiences: ExperienceCard[] = [
     colors: { light: "#cffafe", dark: "#0891b2" },
     media: {
       type: "image",
-      src: "/inner-content/sales-workspace.png",
+      src: "/inner-content/sales-hub.svg",
       caption: "Sales Workspace dashboard view",
-    },
-  },
-  {
-    id: "exp-bridgewell",
-    type: "experience",
-    section: "experiences",
-    company: "Bridgewell Financial",
-    logo: "/companies/bridgewell.png",
-    role: "Software Engineering Intern (Client Onboarding)",
-    period: "Winter 2025",
-    summary:
-      "Shipped a full-stack client onboarding portal, accelerating client onboarding by 35% and reducing manual processing time by 15+ hours per week.",
-    description:
-      "I built REST APIs for document upload and validation.\n\nThe new flow cut onboarding time by 35%. I shipped automated email scheduling, which increased completion rates by 28%.",
-    bullets: [],
-    colors: { light: "#ecfccb", dark: "#65a30d" },
-    media: {
-      type: "image",
-      src: "/inner-content/bridgewell.png",
-      caption: "Client onboarding workflow",
     },
   },
 ];
 
 export const projects: ProjectCard[] = [
+  {
+    id: "proj-tabby",
+    type: "project",
+    section: "projects",
+    title: "Tabby",
+    tagline: "Local-First AI Autocomplete for macOS",
+    image: "/projects/tabby.png",
+    summary:
+      "Built a local-first macOS AI autocomplete app that renders inline ghost-text suggestions across apps with fully on-device inference.",
+    description:
+      "I built a macOS AI autocomplete app in Swift and SwiftUI that works across native and browser-based text fields.\n\nI used the Accessibility API to read nearby editing context and render inline suggestions directly in the active app. I architected an on-device inference pipeline across Apple Intelligence and llama.cpp with cancellation-safe async generation and low-latency streaming. I also added OCR-based context extraction with Vision and per-app controls for a privacy-first offline experience.",
+    technologies: [
+      "Swift",
+      "SwiftUI",
+      "AppKit",
+      "Accessibility API",
+      "Vision",
+      "llama.cpp",
+      "Apple Intelligence",
+    ],
+    bullets: [
+      "Rendered inline autocomplete suggestions across macOS apps using the Accessibility API.",
+      "Built an on-device inference pipeline spanning Apple Intelligence and llama.cpp.",
+      "Added OCR context extraction with Vision and per-app privacy controls.",
+    ],
+    githubUrl: "https://github.com/FuJacob/tabby",
+    liveUrl: "https://www.tabbyapp.dev/",
+    colors: { light: "#fee2e2", dark: "#b91c1c" },
+    media: {
+      type: "image",
+      src: "/projects/tabby.png",
+      caption: "Tabby macOS AI autocomplete",
+    },
+  },
   {
     id: "proj-pickle",
     type: "project",
