@@ -82,7 +82,7 @@ export const experiences: ExperienceCard[] = [
     role: "Software Engineer",
     period: "2026",
     location: "Sunnyvale, CA",
-    summary: "Incoming on Video Ingestion Platform team.",
+    summary: "Media Platforms, Ingestion.",
     description:
       "Incoming software engineering intern at Uber.\n\nAdding this role now to keep the experience list up to date. Team and project details can be added once they are public or finalized.",
     bullets: [],
