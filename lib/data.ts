@@ -67,7 +67,7 @@ export const experiences: ExperienceCard[] = [
     role: "Software Engineer",
     period: "2026",
     location: "New York, NY",
-    summary: "Joining Ramp as an incoming software engineering intern in 2026.",
+    summary: "Backend systems.",
     description:
       "Incoming software engineering intern at Ramp.\n\nAdding this role now to keep the timeline current. Team and project details can be filled in once they are finalized.",
     bullets: [],
@@ -82,7 +82,7 @@ export const experiences: ExperienceCard[] = [
     role: "Software Engineer",
     period: "2026",
     location: "Sunnyvale, CA",
-    summary: "Joining Uber as an incoming software engineering intern in 2026.",
+    summary: "Incoming on Video Ingestion Platform team.",
     description:
       "Incoming software engineering intern at Uber.\n\nAdding this role now to keep the experience list up to date. Team and project details can be added once they are public or finalized.",
     bullets: [],
@@ -172,7 +172,7 @@ export const projects: ProjectCard[] = [
     type: "project",
     section: "projects",
     title: "Pickle",
-    tagline: "Real-Time AI Co-Host",
+    tagline: "Real-Time AI Co-Host for Twitch",
     image: "/projects/pickle.jpg",
     summary:
       "Built a real-time AI co-host for streamers. Reads chat and screen context. Response latency stayed under 1.5 seconds.",
@@ -194,7 +194,7 @@ export const projects: ProjectCard[] = [
     type: "project",
     section: "projects",
     title: "RBveal",
-    tagline: "Voice Phishing Simulator",
+    tagline: "Voice Phishing Simulator for Scam Demos",
     image: "/projects/rbveal.png",
     summary:
       "Built a multi-stage phishing simulator. Won RBC 1st place at 2025. Voice latency stayed under 1.2 seconds.",
@@ -216,7 +216,7 @@ export const projects: ProjectCard[] = [
     type: "project",
     section: "projects",
     title: "MapleTenders",
-    tagline: "AI Tender Search Platform",
+    tagline: "Government Tender Search with Semantic Search",
     image: "/projects/mapletenders.png",
     summary:
       "Built a government tender search platform. ETL ingests 2400+ tenders per day from 30+ sources.",
