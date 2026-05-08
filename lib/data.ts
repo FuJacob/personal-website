@@ -30,7 +30,7 @@ export const personalCard: AboutCard = {
     "Hi! I'm Jacob and I like building products that users love. Outside work, I like playing volleyball and badminton :)",
   media: {
     type: "image",
-    src: "/inner-content/me-2.jpg",
+    src: headerInfo.icon,
     caption: "Jacob Fu",
   },
 };
