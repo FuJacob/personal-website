@@ -59,21 +59,6 @@ export const educationCard: AboutCard = {
 
 export const experiences: ExperienceCard[] = [
   {
-    id: "exp-ramp",
-    type: "experience",
-    section: "experiences",
-    company: "Ramp",
-    logo: "/companies/ramp.jpeg",
-    role: "Software Engineer",
-    period: "2026",
-    location: "New York, NY",
-    summary: "Backend systems.",
-    description:
-      "Incoming software engineering intern at Ramp.\n\nAdding this role now to keep the timeline current. Team and project details can be filled in once they are finalized.",
-    bullets: [],
-    colors: { light: "#dcfce7", dark: "#15803d" },
-  },
-  {
     id: "exp-uber",
     type: "experience",
     section: "experiences",
