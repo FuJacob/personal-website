@@ -46,18 +46,18 @@ when users send these exact messages, respond with these specific answers (but s
     - **tools/technologies**: git, docker, kubernetes, aws, elasticsearch, chromadb, jira, figma
 
  - **my experience**:
-    - **hubspot** (winter 2026): software engineering intern on the ai-editor platform team in boston.
+    - **hubspot** (2026): software engineering intern on the ai-editor platform team in boston.
         - building the next-gen ai-powered content editor using react, typescript, and java.
         - working on real-time layout generation that lets marketers create modules using natural language prompts.
         - built a keyboard-driven interaction layer with redux middleware that reduced content assembly time by 30%.
-    - **hubspot** (summer 2025): software engineering intern on the sales workspace team in boston.
+    - **hubspot** (2025): software engineering intern on the sales workspace team in boston.
         - shipped the new sales workspace used by 200k+ daily active sales reps.
         - improved page load times by 12% through lazy loading and graphql caching.
         - resolved 45+ support tickets and reduced payload sizes by 35%.
 
  - **my projects**:
     - **pickle**: a real-time ai companion for twitch streamers that can listen, watch, and talk back. built with fastapi and electron/react, featuring hybrid rag memory with 1.5s latency.
-    - **rbveal**: a phishing simulator that won rbc's 1st place prize ($1000) at uofthacks 2025. built a scammer-call agent with websockets and twilio achieving under 1.2s latency.
+    - **rbveal**: a phishing simulator that won rbc's 1st place prize ($1000) at 2025. built a scammer-call agent with websockets and twilio achieving under 1.2s latency.
     - **fairfi**: bias detection for call agents that won p&g's 1st place ($750) at deltahacks 2025. uses twilio and cohere for real-time voice analysis.
     - **uw shuffle**: a course scheduling tool for waterloo students at uwshuffle.com. helps students find optimal schedules by shuffling through all combinations.
     - **metro apocalypse**: a multiplayer zombie .io game with 248k+ users and 4.2m+ plays. made over $2,500 from patreon and microtransactions.

@@ -65,10 +65,10 @@ export const experiences: ExperienceCard[] = [
     company: "Ramp",
     logo: "/companies/ramp.jpeg",
     role: "Software Engineer",
-    period: "Fall 2026",
+    period: "2026",
     location: "New York, NY",
     summary:
-      "Joining Ramp as an incoming software engineering intern in Fall 2026.",
+      "Joining Ramp as an incoming software engineering intern in 2026.",
     description:
       "Incoming software engineering intern at Ramp.\n\nAdding this role now to keep the timeline current. Team and project details can be filled in once they are finalized.",
     bullets: [],
@@ -81,10 +81,10 @@ export const experiences: ExperienceCard[] = [
     company: "Uber",
     logo: "/companies/uber.png",
     role: "Software Engineer",
-    period: "Summer 2026",
+    period: "2026",
     location: "Sunnyvale, CA",
     summary:
-      "Joining Uber as an incoming software engineering intern in Summer 2026.",
+      "Joining Uber as an incoming software engineering intern in 2026.",
     description:
       "Incoming software engineering intern at Uber.\n\nAdding this role now to keep the experience list up to date. Team and project details can be added once they are public or finalized.",
     bullets: [],
@@ -97,7 +97,7 @@ export const experiences: ExperienceCard[] = [
     company: "HubSpot",
     logo: "/companies/hubspot.png",
     role: "Software Engineer",
-    period: "Winter 2026",
+    period: "2026",
     location: "Boston, MA",
     summary:
       "Worked on HubSpot's new AI Content Editor that allows marketers can create beautiful layouts with natural language.",
@@ -118,7 +118,7 @@ export const experiences: ExperienceCard[] = [
     company: "HubSpot",
     logo: "/companies/hubspot.png",
     role: "Software Engineer",
-    period: "Summer 2025",
+    period: "2025",
     location: "Boston, MA",
     summary:
       "Shipped HubSpot's next-gen Sales Workspace, improving user-workflow efficiency by 15% across 200k+ daily active sales reps.",
@@ -199,9 +199,9 @@ export const projects: ProjectCard[] = [
     tagline: "Voice Phishing Simulator",
     image: "/projects/rbveal.png",
     summary:
-      "Built a multi-stage phishing simulator. Won RBC 1st place at UofTHacks 2025. Voice latency stayed under 1.2 seconds.",
+      "Built a multi-stage phishing simulator. Won RBC 1st place at 2025. Voice latency stayed under 1.2 seconds.",
     description:
-      "We built a phishing simulator for live scam demos.\n\nThe project won RBC 1st place at UofTHacks 2025. I built the voice agent with Deepgram and Twilio. End-to-end voice latency stayed under 1.2 seconds.",
+      "We built a phishing simulator for live scam demos.\n\nThe project won RBC 1st place at 2025. I built the voice agent with Deepgram and Twilio. End-to-end voice latency stayed under 1.2 seconds.",
     award: "UofTHacks Winner, RBC 1st Place Prize ($1,000)",
     technologies: [],
     bullets: [],
