@@ -14,7 +14,7 @@ export const headerInfo = {
     linkedin: "https://www.linkedin.com/in/fujacob/",
     github: "https://github.com/fujacob/",
     twitter: "https://x.com/fujacobb/",
-    email: "jjacobfu@gmail.com",
+    email: "hi@jacobfu.com",
   },
 };
 
@@ -30,7 +30,7 @@ export const personalCard: AboutCard = {
     "Hi! I'm Jacob and I like building products that users love. Outside work, I like playing volleyball and badminton :)",
   media: {
     type: "image",
-    src: headerInfo.icon,
+    src: "/inner-content/me-2.jpg",
     caption: "Jacob Fu",
   },
 };
@@ -58,6 +58,21 @@ export const educationCard: AboutCard = {
 };
 
 export const experiences: ExperienceCard[] = [
+  {
+    id: "exp-ramp",
+    type: "experience",
+    section: "experiences",
+    company: "Ramp",
+    logo: "/companies/ramp.jpeg",
+    role: "Software Engineer",
+    period: "2026",
+    location: "New York, NY",
+    summary: "Backend systems.",
+    description:
+      "Incoming software engineering intern at Ramp.\n\nAdding this role now to keep the timeline current. Team and project details can be filled in once they are finalized.",
+    bullets: [],
+    colors: { light: "#dcfce7", dark: "#15803d" },
+  },
   {
     id: "exp-uber",
     type: "experience",
@@ -157,7 +172,7 @@ export const projects: ProjectCard[] = [
     type: "project",
     section: "projects",
     title: "Pickle",
-    tagline: "Real-Time AI Co-Host for Twitch",
+    tagline: "Real-Time AI Co-Host",
     image: "/projects/pickle.jpg",
     summary:
       "Built a real-time AI co-host for streamers. Reads chat and screen context. Response latency stayed under 1.5 seconds.",
@@ -179,7 +194,7 @@ export const projects: ProjectCard[] = [
     type: "project",
     section: "projects",
     title: "RBveal",
-    tagline: "Voice Phishing Simulator for Scam Demos",
+    tagline: "Voice Phishing Simulator",
     image: "/projects/rbveal.png",
     summary:
       "Built a multi-stage phishing simulator. Won RBC 1st place at 2025. Voice latency stayed under 1.2 seconds.",
@@ -201,7 +216,7 @@ export const projects: ProjectCard[] = [
     type: "project",
     section: "projects",
     title: "MapleTenders",
-    tagline: "Government Tender Search with Semantic Search",
+    tagline: "AI Tender Search Platform",
     image: "/projects/mapletenders.png",
     summary:
       "Built a government tender search platform. ETL ingests 2400+ tenders per day from 30+ sources.",

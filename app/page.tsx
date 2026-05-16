@@ -9,7 +9,7 @@ const personSchema = {
   url: "https://jacobfu.com",
   image: "https://jacobfu.com/og-image.png",
   jobTitle: "Software Engineer",
-  email: "mailto:jjacobfu@gmail.com",
+  email: "mailto:hi@jacobfu.com",
   alumniOf: {
     "@type": "CollegeOrUniversity",
     name: "University of Waterloo",
