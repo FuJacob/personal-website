@@ -30,7 +30,7 @@ export const personalCard: AboutCard = {
     "Hi! I'm Jacob and I like building products that users love. Outside work, I like playing volleyball and badminton :)",
   media: {
     type: "image",
-    src: "/inner-content/me-2.jpg",
+    src: "/inner-content/me-3.jpg",
     caption: "Jacob Fu",
   },
 };
@@ -82,9 +82,9 @@ export const experiences: ExperienceCard[] = [
     role: "Software Engineer",
     period: "2026",
     location: "Sunnyvale, CA",
-    summary: "Media Platforms, Ingestion.",
+    summary: "Safety media platform, applied AI.",
     description:
-      "Incoming software engineering intern at Uber.\n\nAdding this role now to keep the experience list up to date. Team and project details can be added once they are public or finalized.",
+      "Incoming software engineering intern at Uber working on a safety media platform with applied AI.\n\nAdding this role now to keep the experience list up to date. Team and project details can be added once they are public or finalized.",
     bullets: [],
     colors: { light: "#e5e7eb", dark: "#374151" },
   },
