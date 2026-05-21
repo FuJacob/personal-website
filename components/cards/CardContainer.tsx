@@ -31,7 +31,7 @@ export function CardContainer({
     (section) => section.id !== "chat",
   );
   const contentPanelClassName =
-    "h-[clamp(32rem,calc(100dvh-9rem),56rem)] overflow-y-auto overscroll-contain pr-1 [scrollbar-gutter:stable]";
+    "min-h-[clamp(32rem,calc(100dvh-9rem),56rem)] pr-1";
 
   return (
     <div className="relative flex min-h-screen w-full items-center justify-center py-6 sm:py-8">
