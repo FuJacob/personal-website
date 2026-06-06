@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import background from "./assets/background.jpg";
 import { education } from "./data/education";
 import { work } from "./data/work";
 import { projects } from "./data/projects";
@@ -8,34 +7,39 @@ import { companyLogo, projectLogo } from "./lib/logos";
 
 function App() {
   return (
-    <main className="relative h-screen w-full overflow-hidden">
-      {/* Background photo — scaled up so the blur doesn't reveal edges */}
-      <img
-        src={background}
-        alt=""
-        className="absolute inset-0 h-full w-full scale-105 object-cover blur-xs"
-      />
+    <main className="relative w-full bg-[#dfe5e6]">
+      {/* Background — fixed to the viewport so content scrolls over it */}
+      <div className="fixed inset-0 overflow-hidden">
+        {/* Background photo — scaled up so the blur doesn't reveal edges */}
+        <img
+          src="/background.avif"
+          alt=""
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 h-full w-full scale-105 object-cover blur-xs"
+        />
 
-      {/* Overall white wash */}
-      <div className="absolute inset-0 bg-white/30" />
+        {/* Overall white wash */}
+        <div className="absolute inset-0 bg-white/30" />
 
-      {/* White vignette */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse at center,transparent 35%,rgba(255,255,255,0.97) 90%,rgba(255,255,255,1) 100%)",
-        }}
-      />
+        {/* White vignette */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at center,transparent 35%,rgba(255,255,255,0.97) 90%,rgba(255,255,255,1) 100%)",
+          }}
+        />
+      </div>
 
-      {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6">
+      {/* Content — at least one screen tall & centered, but grows + scrolls if taller */}
+      <div className="relative z-10 flex min-h-dvh flex-col items-center justify-center px-6 py-12">
         <div className="flex w-full max-w-md flex-col gap-7 text-lg">
           <div>
             <h1 className="font-serif text-5xl font-bold tracking-tight">
               Jacob Fu
             </h1>
-            <p className="mt-2 font-serif text-xl italic text-ink/70">
+            <p className="mt-2 font-serif text-md text-ink/70">
               Trying different things
             </p>
             <nav className="mt-4 flex flex-wrap gap-x-5 gap-y-1 text-sm text-ink/45">
@@ -68,7 +72,7 @@ function App() {
             <ul className="flex flex-col gap-3">
               {education.map((e) => (
                 <li key={e.school}>
-                  <div className="flex items-center gap-2 text-ink/80">
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-ink/80">
                     <a
                       href={e.href}
                       target="_blank"
@@ -104,7 +108,7 @@ function App() {
             <ul className="flex flex-col gap-3">
               {work.map((w, i) => (
                 <li key={`${w.company}-${i}`}>
-                  <div className="flex items-center gap-2 text-ink/80">
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-ink/80">
                     <a
                       href={w.href}
                       target="_blank"
@@ -143,7 +147,7 @@ function App() {
                 const logo = projectLogo(p.logo);
                 return (
                   <li key={p.name}>
-                    <div className="flex items-center gap-2 text-ink/80">
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-ink/80">
                       {logo ? (
                         <img
                           src={logo}

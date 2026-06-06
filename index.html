@@ -3,7 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Jacob Fu — CS student at the University of Waterloo."
+    />
     <link rel="icon" type="image/png" href="/src/assets/logo.png" />
+
+    <!-- Preload the hero background so it paints with the page, not after -->
+    <link
+      rel="preload"
+      as="image"
+      href="/background.avif"
+      type="image/avif"
+      fetchpriority="high"
+    />
+
+    <!-- Preload the above-the-fold fonts so the real type shows on first paint -->
+    <link
+      rel="preload"
+      as="font"
+      type="font/ttf"
+      href="/fonts/averia/AveriaSerifLibre-Bold.ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/openrunde/OpenRunde-Regular.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/openrunde/OpenRunde-Semibold.woff2"
+      crossorigin
+    />
+
     <title>Jacob Fu</title>
   </head>
   <body>

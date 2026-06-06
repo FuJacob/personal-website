@@ -3,88 +3,88 @@
 /* ---- Averia Serif Libre (headers) ---- */
 @font-face {
   font-family: "Averia Serif Libre";
-  src: url("./assets/fonts/averia/AveriaSerifLibre-Light.ttf")
+  src: url("/fonts/averia/AveriaSerifLibre-Light.ttf")
     format("truetype");
   font-weight: 300;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: "Averia Serif Libre";
-  src: url("./assets/fonts/averia/AveriaSerifLibre-LightItalic.ttf")
+  src: url("/fonts/averia/AveriaSerifLibre-LightItalic.ttf")
     format("truetype");
   font-weight: 300;
   font-style: italic;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: "Averia Serif Libre";
-  src: url("./assets/fonts/averia/AveriaSerifLibre-Regular.ttf")
+  src: url("/fonts/averia/AveriaSerifLibre-Regular.ttf")
     format("truetype");
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: "Averia Serif Libre";
-  src: url("./assets/fonts/averia/AveriaSerifLibre-Italic.ttf")
+  src: url("/fonts/averia/AveriaSerifLibre-Italic.ttf")
     format("truetype");
   font-weight: 400;
   font-style: italic;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: "Averia Serif Libre";
-  src: url("./assets/fonts/averia/AveriaSerifLibre-Bold.ttf") format("truetype");
+  src: url("/fonts/averia/AveriaSerifLibre-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: "Averia Serif Libre";
-  src: url("./assets/fonts/averia/AveriaSerifLibre-BoldItalic.ttf")
+  src: url("/fonts/averia/AveriaSerifLibre-BoldItalic.ttf")
     format("truetype");
   font-weight: 700;
   font-style: italic;
-  font-display: swap;
+  font-display: optional;
 }
 
 /* ---- Open Runde (body) ---- */
 @font-face {
   font-family: "Open Runde";
   src:
-    url("./assets/fonts/openrunde/OpenRunde-Regular.woff2") format("woff2"),
-    url("./assets/fonts/openrunde/OpenRunde-Regular.woff") format("woff");
+    url("/fonts/openrunde/OpenRunde-Regular.woff2") format("woff2"),
+    url("/fonts/openrunde/OpenRunde-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: "Open Runde";
   src:
-    url("./assets/fonts/openrunde/OpenRunde-Medium.woff2") format("woff2"),
-    url("./assets/fonts/openrunde/OpenRunde-Medium.woff") format("woff");
+    url("/fonts/openrunde/OpenRunde-Medium.woff2") format("woff2"),
+    url("/fonts/openrunde/OpenRunde-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: "Open Runde";
   src:
-    url("./assets/fonts/openrunde/OpenRunde-Semibold.woff2") format("woff2"),
-    url("./assets/fonts/openrunde/OpenRunde-Semibold.woff") format("woff");
+    url("/fonts/openrunde/OpenRunde-Semibold.woff2") format("woff2"),
+    url("/fonts/openrunde/OpenRunde-Semibold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: "Open Runde";
   src:
-    url("./assets/fonts/openrunde/OpenRunde-Bold.woff2") format("woff2"),
-    url("./assets/fonts/openrunde/OpenRunde-Bold.woff") format("woff");
+    url("/fonts/openrunde/OpenRunde-Bold.woff2") format("woff2"),
+    url("/fonts/openrunde/OpenRunde-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 
 /* ---- Tailwind theme tokens ---- */
