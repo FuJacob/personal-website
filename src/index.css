@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+/* ---- Averia Serif Libre (headers) ---- */
+@font-face {
+  font-family: "Averia Serif Libre";
+  src: url("./assets/fonts/averia/AveriaSerifLibre-Light.ttf")
+    format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Averia Serif Libre";
+  src: url("./assets/fonts/averia/AveriaSerifLibre-LightItalic.ttf")
+    format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Averia Serif Libre";
+  src: url("./assets/fonts/averia/AveriaSerifLibre-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Averia Serif Libre";
+  src: url("./assets/fonts/averia/AveriaSerifLibre-Italic.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Averia Serif Libre";
+  src: url("./assets/fonts/averia/AveriaSerifLibre-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Averia Serif Libre";
+  src: url("./assets/fonts/averia/AveriaSerifLibre-BoldItalic.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ---- Open Runde (body) ---- */
+@font-face {
+  font-family: "Open Runde";
+  src:
+    url("./assets/fonts/openrunde/OpenRunde-Regular.woff2") format("woff2"),
+    url("./assets/fonts/openrunde/OpenRunde-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Open Runde";
+  src:
+    url("./assets/fonts/openrunde/OpenRunde-Medium.woff2") format("woff2"),
+    url("./assets/fonts/openrunde/OpenRunde-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Open Runde";
+  src:
+    url("./assets/fonts/openrunde/OpenRunde-Semibold.woff2") format("woff2"),
+    url("./assets/fonts/openrunde/OpenRunde-Semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Open Runde";
+  src:
+    url("./assets/fonts/openrunde/OpenRunde-Bold.woff2") format("woff2"),
+    url("./assets/fonts/openrunde/OpenRunde-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Tailwind theme tokens ---- */
+@theme {
+  --font-serif: "Averia Serif Libre", ui-serif, Georgia, serif;
+  --font-sans: "Open Runde", ui-sans-serif, system-ui, sans-serif;
+
+  /* very dark gray, almost black — global default text color */
+  --color-ink: #161616;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: #f4f3f1;
+  /* Inherited by all text for a subtle inked/printed finish. */
+  text-shadow: 0 0 0.5px rgba(0, 0, 0, 0.6);
+}
+
+/*
+  Force a plain text arrow rather than the emoji-style glyph some mobile
+  OS/browsers substitute. The U+FE0E variation selector (in the markup) plus a
+  non-emoji system font stack keeps it a simple typographic arrow.
+*/
+.arrow {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
