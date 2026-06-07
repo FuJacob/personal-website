@@ -34,14 +34,11 @@ function App() {
 
       {/* Content — at least one screen tall & centered, but grows + scrolls if taller */}
       <div className="relative z-10 flex min-h-dvh flex-col items-center justify-center px-6 py-12">
-        <div className="flex w-full max-w-md flex-col gap-7 text-lg">
+        <div className="flex w-full max-w-lg flex-col gap-6 text-base sm:gap-7 sm:text-lg">
           <div>
-            <h1 className="font-serif text-5xl font-bold tracking-tight">
+            <h1 className="font-serif text-4xl font-bold tracking-tight sm:text-5xl">
               Jacob Fu
             </h1>
-            <p className="mt-2 font-serif text-md text-ink/70">
-              Trying different things
-            </p>
             <nav className="mt-4 flex flex-wrap gap-x-5 gap-y-1 text-sm text-ink/45">
               {contacts.map((c) => {
                 const cls =
@@ -66,7 +63,7 @@ function App() {
           </div>
 
           <div>
-            <p className="mb-2 text-sm uppercase tracking-widest text-ink/40">
+            <p className="mb-2 text-xs uppercase tracking-widest text-ink/40 sm:text-sm">
               Education
             </p>
             <ul className="flex flex-col gap-3">
@@ -86,11 +83,11 @@ function App() {
                       />
                     </a>
                     <span className="font-semibold">{e.school}</span>
-                    <span className="ml-auto whitespace-nowrap text-sm text-ink/40">
+                    <span className="whitespace-nowrap text-xs text-ink/40 sm:ml-auto sm:text-sm">
                       {e.location}
                     </span>
                   </div>
-                  <p className="mt-0.5 pl-7 text-base text-ink/45">
+                  <p className="mt-0.5 pl-7 text-sm text-ink/45 sm:text-base">
                     <span className="arrow" aria-hidden="true">
                       {"→"}
                     </span>{" "}
@@ -102,7 +99,7 @@ function App() {
           </div>
 
           <div>
-            <p className="mb-2 text-sm uppercase tracking-widest text-ink/40">
+            <p className="mb-2 text-xs uppercase tracking-widest text-ink/40 sm:text-sm">
               Work
             </p>
             <ul className="flex flex-col gap-3">
@@ -122,12 +119,14 @@ function App() {
                       />
                     </a>
                     <span className="font-semibold">{w.company}</span>
-                    <span className="text-sm text-ink/45">{w.role}</span>
-                    <span className="ml-auto whitespace-nowrap text-sm text-ink/40">
+                    <span className="text-xs text-ink/45 sm:text-sm">
+                      {w.role}
+                    </span>
+                    <span className="whitespace-nowrap text-xs text-ink/40 sm:ml-auto sm:text-sm">
                       {w.location} · {w.year}
                     </span>
                   </div>
-                  <p className="mt-0.5 pl-7 text-base text-ink/45">
+                  <p className="mt-0.5 pl-7 text-sm text-ink/45 sm:text-base">
                     <span className="arrow" aria-hidden="true">
                       {"→"}
                     </span>{" "}
@@ -139,7 +138,7 @@ function App() {
           </div>
 
           <div>
-            <p className="mb-2 text-sm uppercase tracking-widest text-ink/40">
+            <p className="mb-2 text-xs uppercase tracking-widest text-ink/40 sm:text-sm">
               Projects
             </p>
             <ul className="flex flex-col gap-3">
@@ -167,11 +166,11 @@ function App() {
                       >
                         {p.name}
                       </a>
-                      <span className="text-sm text-ink/45">
+                      <span className="text-xs text-ink/45 sm:text-sm">
                         {p.description}
                       </span>
                     </div>
-                    <p className="mt-0.5 pl-7 text-base text-ink/45">
+                    <p className="mt-0.5 pl-7 text-sm text-ink/45 sm:text-base">
                       <span className="arrow" aria-hidden="true">
                         {"→"}
                       </span>{" "}
