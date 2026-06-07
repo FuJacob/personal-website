@@ -96,6 +96,11 @@
   --color-ink: #161616;
 }
 
+:root {
+  /* Visible viewport height; JS overrides with visualViewport for in-app browsers. */
+  --app-h: 100dvh;
+}
+
 body {
   font-family: var(--font-sans);
   color: var(--color-ink);

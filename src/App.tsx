@@ -1,11 +1,16 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { education } from "./data/education";
 import { work } from "./data/work";
 import { projects } from "./data/projects";
 import { contacts } from "./data/contacts";
 import { companyLogo, projectLogo } from "./lib/logos";
+import { useFitToViewport } from "./lib/useFitToViewport";
 
 function App() {
+  const contentRef = useRef<HTMLDivElement>(null);
+  useFitToViewport(contentRef);
+
   return (
     <main className="relative w-full bg-[#dfe5e6]">
       {/* Background — fixed to the viewport so content scrolls over it */}
@@ -32,9 +37,16 @@ function App() {
         />
       </div>
 
-      {/* Content — at least one screen tall & centered, but grows + scrolls if taller */}
-      <div className="relative z-10 flex min-h-dvh flex-col items-center justify-center px-4 py-12 sm:px-6">
-        <div className="flex w-full max-w-lg flex-col gap-6 text-base sm:gap-7 sm:text-lg">
+      {/* Content — exactly the visible viewport tall; inner block scales to fit */}
+      <div
+        className="relative z-10 flex flex-col items-center justify-center overflow-hidden px-4 py-6 sm:px-6"
+        style={{ height: "var(--app-h)" }}
+      >
+        <div
+          ref={contentRef}
+          style={{ transformOrigin: "center", willChange: "transform" }}
+          className="flex w-full max-w-lg flex-col gap-6 text-base sm:gap-7 sm:text-lg"
+        >
           <div>
             <h1 className="font-serif text-4xl font-bold tracking-tight sm:text-5xl">
               Jacob Fu
