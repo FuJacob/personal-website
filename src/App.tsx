@@ -33,7 +33,7 @@ function App() {
       </div>
 
       {/* Content — at least one screen tall & centered, but grows + scrolls if taller */}
-      <div className="relative z-10 flex min-h-dvh flex-col items-center justify-center px-6 py-12">
+      <div className="relative z-10 flex min-h-dvh flex-col items-center justify-center px-4 py-12 sm:px-6">
         <div className="flex w-full max-w-lg flex-col gap-6 text-base sm:gap-7 sm:text-lg">
           <div>
             <h1 className="font-serif text-4xl font-bold tracking-tight sm:text-5xl">
@@ -83,7 +83,7 @@ function App() {
                       />
                     </a>
                     <span className="font-semibold">{e.school}</span>
-                    <span className="whitespace-nowrap text-xs text-ink/40 sm:ml-auto sm:text-sm">
+                    <span className="ml-auto whitespace-nowrap text-xs text-ink/40 sm:text-sm">
                       {e.location}
                     </span>
                   </div>
@@ -122,7 +122,7 @@ function App() {
                     <span className="text-xs text-ink/45 sm:text-sm">
                       {w.role}
                     </span>
-                    <span className="whitespace-nowrap text-xs text-ink/40 sm:ml-auto sm:text-sm">
+                    <span className="ml-auto whitespace-nowrap text-xs text-ink/40 sm:text-sm">
                       {w.location} · {w.year}
                     </span>
                   </div>

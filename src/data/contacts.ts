@@ -9,5 +9,4 @@ export const contacts: Contact[] = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/fujacob/" },
   { label: "X", href: "https://x.com/fujacobb/" },
   { label: "YouTube", href: "https://www.youtube.com/@jjacobfu" },
-  { label: "Resume", href: "/resume" },
 ];
