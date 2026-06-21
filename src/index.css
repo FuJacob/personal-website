@@ -116,16 +116,16 @@ body {
   opacity: 0.86;
   -webkit-mask-image: radial-gradient(
     ellipse at center,
-    transparent 0 70%,
-    rgb(0 0 0 / 8%) 76%,
-    rgb(0 0 0 / 48%) 89%,
+    transparent 0 84%,
+    rgb(0 0 0 / 8%) 88%,
+    rgb(0 0 0 / 48%) 95%,
     #000 100%
   );
   mask-image: radial-gradient(
     ellipse at center,
-    transparent 0 70%,
-    rgb(0 0 0 / 8%) 76%,
-    rgb(0 0 0 / 48%) 89%,
+    transparent 0 84%,
+    rgb(0 0 0 / 8%) 88%,
+    rgb(0 0 0 / 48%) 95%,
     #000 100%
   );
 }

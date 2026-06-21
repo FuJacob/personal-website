@@ -52,7 +52,8 @@ function App() {
                 hey, i'm Jacob Fu
               </h1>
               <p className="mt-3 max-w-md text-base text-ink/70 sm:text-lg">
-                currently in the bay, trying new ideas and places.              </p>
+                trying new ideas and places.
+              </p>
               <nav className="mt-4 flex flex-wrap items-baseline gap-x-5 gap-y-1 text-sm text-ink/45">
                 {contacts.map((c) => {
                   const cls =
