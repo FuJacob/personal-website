@@ -1,12 +1,16 @@
+export type WorkStint = {
+  /** one-liner about the team / what you worked on */
+  team: string;
+  year: string;
+};
+
 export type WorkEntry = {
   /** logo key — matches a filename in src/assets/companies (no extension) */
   logo: string;
   company: string;
-  role: string;
   location: string;
-  year: string;
-  /** one-liner about the team / what you worked on */
-  team: string;
+  /** one row per stint at this company, newest first */
+  stints: WorkStint[];
   href?: string;
 };
 
@@ -14,37 +18,25 @@ export const work: WorkEntry[] = [
   {
     logo: "ramp",
     company: "Ramp",
-    role: "Software Engineer",
     location: "New York, NY",
-    year: "2026",
-    team: "Incoming Backend Engineering",
+    stints: [{ team: "Incoming Backend Engineering", year: "2026" }],
     href: "https://ramp.com",
   },
   {
     logo: "uber",
     company: "Uber",
-    role: "Software Engineer",
     location: "Sunnyvale, CA",
-    year: "2026",
-    team: "Safety Media Platform, Applied AI",
+    stints: [{ team: "Safety Media Platform, Applied AI", year: "2026" }],
     href: "https://uber.com",
   },
   {
     logo: "hubspot",
     company: "HubSpot",
-    role: "Software Engineer",
     location: "Boston, MA",
-    year: "2026",
-    team: "AI Content Editor",
-    href: "https://hubspot.com",
-  },
-  {
-    logo: "hubspot",
-    company: "HubSpot",
-    role: "Software Engineer",
-    location: "Boston, MA",
-    year: "2025",
-    team: "Sales Workspace",
+    stints: [
+      { team: "AI Content Editor", year: "2026" },
+      { team: "Sales Workspace", year: "2025" },
+    ],
     href: "https://hubspot.com",
   },
 ];

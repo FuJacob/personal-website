@@ -10,10 +10,10 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    logo: "tabby",
+    logo: "cotabby",
     name: "Cotabby",
     description: "AI autocomplete for macOS",
-    detail: "6k+ downloads, 700+ stars, YC S26 interview",
+    detail: "9k+ downloads, 800+ stars, YC S26 interview",
     href: "https://cotabby.app",
   },
   {

@@ -16,7 +16,6 @@ export function useFitToViewport(contentRef: RefObject<HTMLElement | null>) {
     if (!el) return;
 
     const vv = window.visualViewport;
-    const MARGIN = 16; // breathing room so content isn't flush to the edges
     let frame = 0;
 
     const apply = () => {
@@ -31,10 +30,24 @@ export function useFitToViewport(contentRef: RefObject<HTMLElement | null>) {
       const ch = el.offsetHeight;
       if (!cw || !ch) return;
 
+      // Reserve the outer container's responsive padding before scaling. This
+      // keeps the content from being fitted flush to a viewport edge.
+      const containerStyle = el.parentElement
+        ? getComputedStyle(el.parentElement)
+        : null;
+      const horizontalPadding = containerStyle
+        ? parseFloat(containerStyle.paddingLeft) +
+          parseFloat(containerStyle.paddingRight)
+        : 32;
+      const verticalPadding = containerStyle
+        ? parseFloat(containerStyle.paddingTop) +
+          parseFloat(containerStyle.paddingBottom)
+        : 48;
+
       const scale = Math.min(
         1,
-        (availW - MARGIN) / cw,
-        (availH - MARGIN) / ch,
+        Math.max(0, availW - horizontalPadding) / cw,
+        Math.max(0, availH - verticalPadding) / ch,
       );
       el.style.transform = scale < 1 ? `scale(${scale})` : "";
     };

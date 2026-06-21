@@ -7,7 +7,7 @@
     format("truetype");
   font-weight: 300;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 @font-face {
   font-family: "Averia Serif Libre";
@@ -15,7 +15,7 @@
     format("truetype");
   font-weight: 300;
   font-style: italic;
-  font-display: optional;
+  font-display: swap;
 }
 @font-face {
   font-family: "Averia Serif Libre";
@@ -23,7 +23,7 @@
     format("truetype");
   font-weight: 400;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 @font-face {
   font-family: "Averia Serif Libre";
@@ -31,14 +31,14 @@
     format("truetype");
   font-weight: 400;
   font-style: italic;
-  font-display: optional;
+  font-display: swap;
 }
 @font-face {
   font-family: "Averia Serif Libre";
   src: url("/fonts/averia/AveriaSerifLibre-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 @font-face {
   font-family: "Averia Serif Libre";
@@ -46,7 +46,7 @@
     format("truetype");
   font-weight: 700;
   font-style: italic;
-  font-display: optional;
+  font-display: swap;
 }
 
 /* ---- Open Runde (body) ---- */
@@ -57,7 +57,7 @@
     url("/fonts/openrunde/OpenRunde-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 @font-face {
   font-family: "Open Runde";
@@ -66,7 +66,7 @@
     url("/fonts/openrunde/OpenRunde-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 @font-face {
   font-family: "Open Runde";
@@ -75,7 +75,7 @@
     url("/fonts/openrunde/OpenRunde-Semibold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 @font-face {
   font-family: "Open Runde";
@@ -84,7 +84,7 @@
     url("/fonts/openrunde/OpenRunde-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 
 /* ---- Tailwind theme tokens ---- */
@@ -107,6 +107,62 @@ body {
   background-color: #f4f3f1;
   /* Inherited by all text for a subtle inked/printed finish. */
   text-shadow: 0 0 0.5px rgba(0, 0, 0, 0.6);
+}
+
+/* Fine animated grain, masked toward the edges to avoid a smooth vignette. */
+.noise-vignette {
+  overflow: hidden;
+  mix-blend-mode: multiply;
+  opacity: 0.86;
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    transparent 0 70%,
+    rgb(0 0 0 / 8%) 76%,
+    rgb(0 0 0 / 48%) 89%,
+    #000 100%
+  );
+  mask-image: radial-gradient(
+    ellipse at center,
+    transparent 0 70%,
+    rgb(0 0 0 / 8%) 76%,
+    rgb(0 0 0 / 48%) 89%,
+    #000 100%
+  );
+}
+
+.noise-vignette::before {
+  position: absolute;
+  inset: -320px;
+  content: "";
+  background-image: url("/noise.svg");
+  background-size: 320px 320px;
+  will-change: transform;
+  animation: noise-shift 700ms steps(1, end) infinite;
+}
+
+@keyframes noise-shift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  20% {
+    transform: translate3d(-28px, 16px, 0);
+  }
+  40% {
+    transform: translate3d(20px, -24px, 0);
+  }
+  60% {
+    transform: translate3d(-12px, -32px, 0);
+  }
+  80% {
+    transform: translate3d(32px, 12px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .noise-vignette::before {
+    animation: none;
+  }
 }
 
 /*

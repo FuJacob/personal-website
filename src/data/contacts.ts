@@ -4,7 +4,7 @@ export type Contact = {
 };
 
 export const contacts: Contact[] = [
-  { label: "Email", href: "mailto:jjacobfu@gmail.com" },
+  { label: "Mail", href: "mailto:jjacobfu@gmail.com" },
   { label: "GitHub", href: "https://github.com/fujacob/" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/fujacob/" },
   { label: "X", href: "https://x.com/fujacobb/" },

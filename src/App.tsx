@@ -15,25 +15,24 @@ function App() {
     <main className="relative w-full bg-[#dfe5e6]">
       {/* Background — fixed to the viewport so content scrolls over it */}
       <div className="fixed inset-0 overflow-hidden">
-        {/* Background photo — scaled up so the blur doesn't reveal edges */}
-        <img
-          src="/background.avif"
-          alt=""
-          fetchPriority="high"
-          decoding="async"
+        {/* Background video — scaled up so the blur doesn't reveal edges */}
+        <video
+          src="/bg.webm"
+          autoPlay
+          loop
+          muted
+          playsInline
+          aria-hidden="true"
           className="absolute inset-0 h-full w-full scale-105 object-cover blur-xs"
         />
 
         {/* Overall white wash */}
         <div className="absolute inset-0 bg-white/30" />
 
-        {/* White vignette */}
+        {/* Animated dark-grain vignette */}
         <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse at center,transparent 35%,rgba(255,255,255,0.97) 90%,rgba(255,255,255,1) 100%)",
-          }}
+          className="noise-vignette pointer-events-none absolute inset-0"
+          aria-hidden="true"
         />
       </div>
 
@@ -47,36 +46,49 @@ function App() {
           style={{ transformOrigin: "center", willChange: "transform" }}
           className="flex w-full max-w-lg flex-col gap-6 text-base sm:gap-7 sm:text-lg"
         >
-          <div>
-            <h1 className="font-serif text-4xl font-bold tracking-tight sm:text-5xl">
-              Jacob Fu
-            </h1>
-            <nav className="mt-4 flex flex-wrap gap-x-5 gap-y-1 text-sm text-ink/45">
-              {contacts.map((c) => {
-                const cls =
-                  "underline decoration-transparent decoration-from-font underline-offset-4 transition-colors hover:text-ink hover:decoration-ink/60";
-                return c.href.startsWith("/") ? (
-                  <Link key={c.label} to={c.href} className={cls}>
-                    {c.label}
-                  </Link>
-                ) : (
-                  <a
-                    key={c.label}
-                    href={c.href}
-                    target={c.href.startsWith("http") ? "_blank" : undefined}
-                    rel="noreferrer"
-                    className={cls}
-                  >
-                    {c.label}
-                  </a>
-                );
-              })}
-            </nav>
+          <div className="flex items-start justify-between gap-5">
+            <div className="min-w-0">
+              <h1 className="font-serif text-4xl font-bold tracking-tight sm:text-5xl">
+                hey, i'm Jacob Fu
+              </h1>
+              <p className="mt-3 max-w-md text-base text-ink/70 sm:text-lg">
+                currently in the bay, trying new ideas and places.              </p>
+              <nav className="mt-4 flex flex-wrap items-baseline gap-x-5 gap-y-1 text-sm text-ink/45">
+                {contacts.map((c) => {
+                  const cls =
+                    "underline decoration-transparent decoration-from-font underline-offset-4 transition-colors hover:text-ink hover:decoration-ink/60";
+                  return c.href.startsWith("/") ? (
+                    <Link key={c.label} to={c.href} className={cls}>
+                      {c.label}
+                    </Link>
+                  ) : (
+                    <a
+                      key={c.label}
+                      href={c.href}
+                      target={c.href.startsWith("http") ? "_blank" : undefined}
+                      rel="noreferrer"
+                      className={cls}
+                    >
+                      {c.label}
+                    </a>
+                  );
+                })}
+              </nav>
+            </div>
+            <img
+              src="/portrait.jpg"
+              alt="Jacob Fu"
+              decoding="async"
+              onError={(e) => {
+                e.currentTarget.style.display = "none";
+              }}
+              className="size-24 shrink-0 rounded-2xl object-cover shadow-sm sm:size-28"
+            />
           </div>
 
           <div>
             <p className="mb-2 text-xs uppercase tracking-widest text-ink/40 sm:text-sm">
-              Education
+              studying at
             </p>
             <ul className="flex flex-col gap-3">
               {education.map((e) => (
@@ -112,7 +124,7 @@ function App() {
 
           <div>
             <p className="mb-2 text-xs uppercase tracking-widest text-ink/40 sm:text-sm">
-              Work
+              working / worked at
             </p>
             <ul className="flex flex-col gap-3">
               {work.map((w, i) => (
@@ -131,19 +143,26 @@ function App() {
                       />
                     </a>
                     <span className="font-semibold">{w.company}</span>
-                    <span className="text-xs text-ink/45 sm:text-sm">
-                      {w.role}
-                    </span>
                     <span className="ml-auto whitespace-nowrap text-xs text-ink/40 sm:text-sm">
-                      {w.location} · {w.year}
+                      {w.location}
                     </span>
                   </div>
-                  <p className="mt-0.5 pl-7 text-sm text-ink/45 sm:text-base">
-                    <span className="arrow" aria-hidden="true">
-                      {"→"}
-                    </span>{" "}
-                    {w.team}
-                  </p>
+                  {w.stints.map((s) => (
+                    <p
+                      key={s.year}
+                      className="mt-0.5 flex items-baseline gap-x-2 pl-7 text-sm text-ink/45 sm:text-base"
+                    >
+                      <span>
+                        <span className="arrow" aria-hidden="true">
+                          {"→"}
+                        </span>{" "}
+                        {s.team}
+                      </span>
+                      <span className="ml-auto whitespace-nowrap text-xs text-ink/40 sm:text-sm">
+                        {s.year}
+                      </span>
+                    </p>
+                  ))}
                 </li>
               ))}
             </ul>
@@ -151,7 +170,7 @@ function App() {
 
           <div>
             <p className="mb-2 text-xs uppercase tracking-widest text-ink/40 sm:text-sm">
-              Projects
+              building / built
             </p>
             <ul className="flex flex-col gap-3">
               {projects.map((p) => {
