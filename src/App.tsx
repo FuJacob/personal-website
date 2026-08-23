@@ -13,7 +13,7 @@ function App() {
   useFitToViewport(contentRef);
 
   return (
-    <main className="relative w-full bg-[#dfe5e6]">
+    <main className="relative w-full bg-white">
       {/* Background — fixed to the viewport so content scrolls over it */}
       <div className="fixed inset-0 overflow-hidden">
         {/* Background video — scaled up so the blur doesn't reveal edges */}
