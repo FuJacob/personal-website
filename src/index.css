@@ -109,6 +109,17 @@ body {
   text-shadow: 0 0 0.5px rgba(0, 0, 0, 0.6);
 }
 
+/* Keep mobile browsers from treating the decorative background as a player. */
+.background-video::-webkit-media-controls,
+.background-video::-webkit-media-controls-enclosure,
+.background-video::-webkit-media-controls-panel,
+.background-video::-webkit-media-controls-overlay-play-button,
+.background-video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+  opacity: 0;
+}
+
 /* Fine animated grain, masked toward the edges to avoid a smooth vignette. */
 .noise-vignette {
   overflow: hidden;

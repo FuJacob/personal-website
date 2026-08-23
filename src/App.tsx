@@ -23,8 +23,11 @@ function App() {
           loop
           muted
           playsInline
+          controls={false}
+          disablePictureInPicture
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full scale-105 object-cover blur-xs"
+          tabIndex={-1}
+          className="background-video pointer-events-none absolute inset-0 h-full w-full scale-105 object-cover blur-xs"
         />
 
         {/* Overall white wash */}
