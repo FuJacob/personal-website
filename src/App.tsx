@@ -81,14 +81,12 @@ function App() {
                 })}
               </nav>
             </div>
-            <div className="h-24 min-w-0 flex-1 overflow-hidden rounded-2xl shadow-sm sm:h-28">
-              <img
-                src={me}
-                alt="Jacob Fu"
-                decoding="async"
-                className="h-full w-full scale-90 object-cover"
-              />
-            </div>
+            <img
+              src={me}
+              alt="Jacob Fu"
+              decoding="async"
+              className="h-24 min-w-0 flex-1 object-contain sm:h-28"
+            />
           </div>
 
           <div>
