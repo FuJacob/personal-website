@@ -13,7 +13,7 @@ export const projects: Project[] = [
     logo: "cotabby",
     name: "Cotabby",
     description: "AI autocomplete for macOS",
-    detail: "9k+ downloads, 800+ stars, YC S26 interview",
+    detail: "14k+ installs, 900+ stars, YC S26 interview",
     href: "https://cotabby.app",
   },
   {
@@ -34,7 +34,7 @@ export const projects: Project[] = [
     logo: "metroapocalypse",
     name: "Metro Apocalypse",
     description: "Multiplayer zombie tag .IO game",
-    detail: "248k+ users, 4.2M+ plays, $2.5k+ revenue",
+    detail: "248k+ unique players, 4.2M+ plays, $2.5k+ revenue",
     href: "https://www.patreon.com/amuletio",
   },
 ];

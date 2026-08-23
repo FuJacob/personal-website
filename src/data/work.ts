@@ -19,8 +19,15 @@ export const work: WorkEntry[] = [
     logo: "ramp",
     company: "Ramp",
     location: "New York, NY",
-    stints: [{ team: "Incoming Backend Engineering", year: "2026" }],
+    stints: [{ team: "Fall 2026, Accounting Engineering", year: "2026" }],
     href: "https://ramp.com",
+  },
+  {
+    logo: "hyperwrite",
+    company: "HyperWrite AI",
+    location: "Waterloo, ON",
+    stints: [{ team: "AI Predictive Writing", year: "2026" }],
+    href: "https://hyperwriteai.com/",
   },
   {
     logo: "uber",

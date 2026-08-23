@@ -47,13 +47,14 @@ function App() {
           className="flex w-full max-w-lg flex-col gap-6 text-base sm:gap-7 sm:text-lg"
         >
           <div className="flex items-start justify-between gap-5">
-            <div className="min-w-0">
-              <h1 className="font-serif text-4xl font-bold tracking-tight sm:text-5xl">
-                hey, i'm Jacob Fu
+            <div className="min-w-0 flex flex-col items-center justify-center w-full">
+              <h1 className="font-serif text-2xl font-bold tracking-tight sm:text-5xl">
+                jacob fu
               </h1>
-              <p className="mt-3 max-w-md text-base text-ink/70 sm:text-lg">
-                trying new ideas and places.
+              <p className="mt-2 max-w-md text-sm font-serif text-ink/70 sm:text-md">
+                trying to have fun and explore :-{")"}
               </p>
+
               <nav className="mt-4 flex flex-wrap items-baseline gap-x-5 gap-y-1 text-sm text-ink/45">
                 {contacts.map((c) => {
                   const cls =
