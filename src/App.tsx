@@ -18,7 +18,6 @@ function App() {
       <div className="fixed inset-0 overflow-hidden">
         {/* Background video — scaled up so the blur doesn't reveal edges */}
         <video
-          src="/bg.webm"
           autoPlay
           loop
           muted
@@ -27,8 +26,14 @@ function App() {
           disablePictureInPicture
           aria-hidden="true"
           tabIndex={-1}
-          className="background-video pointer-events-none absolute inset-0 h-full w-full scale-105 object-cover blur-xs"
-        />
+          className="background-video pointer-events-none absolute inset-0 hidden h-full w-full scale-105 object-cover blur-xs sm:block"
+        >
+          <source
+            src="/bg.webm"
+            type="video/webm"
+            media="(min-width: 640px)"
+          />
+        </video>
 
         {/* Overall white wash */}
         <div className="absolute inset-0 bg-white/30" />
