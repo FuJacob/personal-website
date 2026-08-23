@@ -6,6 +6,7 @@ import { projects } from "./data/projects";
 import { contacts } from "./data/contacts";
 import { companyLogo, projectLogo } from "./lib/logos";
 import { useFitToViewport } from "./lib/useFitToViewport";
+import me from "./assets/me.png";
 
 function App() {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -46,13 +47,13 @@ function App() {
           style={{ transformOrigin: "center", willChange: "transform" }}
           className="flex w-full max-w-lg flex-col gap-6 text-base sm:gap-7 sm:text-lg"
         >
-          <div className="flex items-start justify-between gap-5">
-            <div className="min-w-0 flex flex-col items-center justify-center w-full">
+          <div className="flex w-full items-center justify-between gap-5 sm:gap-7">
+            <div className="flex shrink-0 flex-col items-start text-left">
               <h1 className="font-serif text-2xl font-bold tracking-tight sm:text-5xl">
                 jacob fu
               </h1>
               <p className="mt-2 max-w-md text-sm font-serif text-ink/70 sm:text-md">
-                trying to have fun and explore :-{")"}
+                trying to have fun and learn more :{")"}
               </p>
 
               <nav className="mt-4 flex flex-wrap items-baseline gap-x-5 gap-y-1 text-sm text-ink/45">
@@ -77,15 +78,14 @@ function App() {
                 })}
               </nav>
             </div>
-            <img
-              src="/portrait.jpg"
-              alt="Jacob Fu"
-              decoding="async"
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-              }}
-              className="size-24 shrink-0 rounded-2xl object-cover shadow-sm sm:size-28"
-            />
+            <div className="h-24 min-w-0 flex-1 overflow-hidden rounded-2xl shadow-sm sm:h-28">
+              <img
+                src={me}
+                alt="Jacob Fu"
+                decoding="async"
+                className="h-full w-full scale-90 object-cover"
+              />
+            </div>
           </div>
 
           <div>
