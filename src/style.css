@@ -1,0 +1,125 @@
+/* ---- Averia Serif Libre ---- */
+@font-face {
+  font-family: "Averia Serif Libre";
+  src: url("/fonts/averia/AveriaSerifLibre-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Averia Serif Libre";
+  src: url("/fonts/averia/AveriaSerifLibre-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Averia Serif Libre";
+  src: url("/fonts/averia/AveriaSerifLibre-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+
+  --font-display: "Averia Serif Libre", Georgia, ui-serif, serif;
+  --font-body: Georgia, "Times New Roman", ui-serif, serif;
+
+  --ink: #1a1a1a;
+  --ink-soft: #3d3d3d;
+  --rule: #d8d8d8;
+  --bg: #fff;
+  /* soft muted tone for section headers */
+  --accent: #8d9aa3;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  background: var(--bg);
+}
+
+body {
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 2.5rem;
+  max-width: 38rem;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* ---- Type ---- */
+h1 {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+h2 {
+  margin: 1.5rem 0 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  color: var(--accent);
+}
+
+p {
+  margin: 0 0 0.9rem;
+  color: var(--ink-soft);
+}
+
+/* Each stint on its own line, with a little air between them. */
+.stints p {
+  margin-bottom: 0.45rem;
+}
+
+/* ---- Links ---- */
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+  transition: text-decoration-color 120ms ease;
+}
+
+a:hover {
+  text-decoration-color: var(--ink);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* ---- Nav ---- */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 1rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
