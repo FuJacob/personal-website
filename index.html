@@ -13,104 +13,19 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="preload" href="/boy-left.png" as="image" />
+    <link rel="preload" href="/boy-up-left.png" as="image" />
+    <link rel="preload" href="/boy-up-center.png" as="image" />
+    <link rel="preload" href="/boy-up-right.png" as="image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="preload"
-      as="font"
-      type="font/ttf"
-      href="/fonts/averia/AveriaSerifLibre-Bold.ttf"
-      crossorigin
+      href="https://fonts.googleapis.com/css2?family=Geist+Pixel&display=swap"
+      rel="stylesheet"
     />
-    <link
-      rel="preload"
-      as="font"
-      type="font/ttf"
-      href="/fonts/averia/AveriaSerifLibre-Regular.ttf"
-      crossorigin
-    />
-    <link rel="stylesheet" href="/src/style.css" />
-    <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
   </head>
   <body>
-    <div class="backdrop" aria-hidden="true">
-      <video
-        class="backdrop-video"
-        autoplay
-        loop
-        muted
-        playsinline
-        disablepictureinpicture
-        tabindex="-1"
-        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Crect width='16' height='16' fill='%23fff'/%3E%3C/svg%3E"
-      >
-        <source src="/bg.webm" type="video/webm" media="(min-width: 40rem)" />
-      </video>
-    </div>
-
-    <nav aria-label="Social links">
-      <a href="https://x.com/fujacobb/">X</a>
-      <a href="https://github.com/fujacob/">GitHub</a>
-      <a href="https://www.linkedin.com/in/fujacob/">LinkedIn</a>
-      <a href="https://www.youtube.com/@jjacobfu">YouTube</a>
-      <a href="mailto:jjacobfu@gmail.com">Mail</a>
-    </nav>
-
-    <h1>Jacob Fu</h1>
-
-    <p>
-      Hey :) I'm a CS student at the
-      <a href="https://uwaterloo.ca">University of Waterloo</a>, and I try to
-      spend most of my time learning from people who are further along than me
-      in the things I care about.
-        </p>
-
-    <h2>I've had a few stints</h2>
-
-    <div class="stints">
-      <p>
-        Right now I'm at <a href="https://ramp.com">Ramp</a> in New York City,
-        working on some problems in the accounting space.
-      </p>
-      <p>
-        Before that, I bounced between coasts: building on the Safety Media
-        Platform at <a href="https://uber.com">Uber</a> in Sunnyvale, and working
-        on Sales Workspace and the AI Content Editor at
-        <a href="https://hubspot.com">HubSpot</a> in Boston.
-      </p>
-      <p>Getting to live and work in a few of the big US cities has been a lot of fun :)</p>
-    </div>
-    <h2>and built a few things along the way</h2>
-
-    <div class="stints">
-      <p>
-        Recently I built <a href="https://cotabby.app">Cotabby.app</a>, an AI
-        autocomplete for macOS. So far, it's gotten to 15k+ installs and 1000+ stars.
-      </p>
-      <p>
-        Back in high school I was obsessed with .IO games, and ended up making
-        <a href="https://www.patreon.com/amuletio">Metro Apocalypse</a>, a
-        multiplayer zombie tag game. It ended up with 248k+ unique players,
-        4.2M+ plays, and $2.5k+ in Patreon revenue.
-      </p>
-    </div>
-
-    <h2>and won a few hackathons</h2>
-
-    <div class="stints">
-      <p>Browser Use 1st Place, YC CallMyAgent 2026 Hackathon</p>
-      <p>Overall 1st Place, Ramp AI Intern 2026 Hackathon</p>
-      <p>RBC 1st Place, UofTHacks 2025 Hackathon</p>
-      <p>P&amp;G 1st Place, DeltaHacks 2025 Hackathon</p>
-      <p>Best Security Hack, CTRL+HACK+DEL 2024 Hackathon</p>
-    </div>
-
-    <h2>maybe say hi?</h2>
-
-    <p>
-      Feel free to say hi
-      <a href="mailto:jjacobfu@gmail.com">jjacobfu@gmail.com</a> 🙂.
-    </p>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

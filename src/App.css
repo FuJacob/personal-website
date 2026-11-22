@@ -1,0 +1,430 @@
+.page {
+  --ground-offset: 1.5rem;
+  --ground-height: 18px;
+
+  position: relative;
+  /* Exactly one screen tall, with no scrolling. */
+  height: 100svh;
+  overflow: hidden;
+  background: #fff;
+  color: #000;
+}
+
+.intro-text {
+  margin: 0;
+  font-family: var(--font-pixel);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.pixel-boy {
+  position: fixed;
+  z-index: 2;
+  /* Sit him on the ground strip so the front tufts cover his hands. */
+  bottom: 2px;
+  left: 50%;
+  width: auto;
+  height: min(22svh, 12rem);
+  transform: translateX(-50%);
+  image-rendering: pixelated;
+}
+
+.sun {
+  --sun-frame-time: 0.9s;
+
+  position: absolute;
+  z-index: 0;
+  top: 1.5rem;
+  left: 1.5rem;
+  /* 2 screen pixels per grid pixel, the same size as the grass blades. */
+  width: 98px;
+  height: 98px;
+  pointer-events: none;
+}
+
+.sun-rays {
+  opacity: 0;
+  animation: turn-sun-rays calc(var(--sun-frame-time) * 4) step-end infinite;
+}
+
+.sun-rays-0 {
+  animation-delay: 0s;
+}
+
+.sun-rays-1 {
+  animation-delay: calc(var(--sun-frame-time) * -3);
+}
+
+.sun-rays-2 {
+  animation-delay: calc(var(--sun-frame-time) * -2);
+}
+
+.sun-rays-3 {
+  animation-delay: calc(var(--sun-frame-time) * -1);
+}
+
+/* On phones the sun hangs partly off the top-left corner and fades back, so it only
+   just touches the name without fighting it. */
+@media (max-width: 639px) {
+  .sun {
+    top: -40px;
+    left: -30px;
+    opacity: 0.35;
+  }
+}
+
+/* The arrow follows the text color, so it flips with the highlight below. */
+.brand-link svg {
+  fill: currentColor;
+}
+
+/* Hovering a link fills the words, spaces and arrow in one block of the brand's color, sitting on the black underline. */
+.brand-link:hover,
+.brand-link:focus-visible {
+  background: var(--brand);
+  /* Pad the block sideways and up only, so nothing covers the underline. */
+  box-shadow:
+    -2px 0 0 var(--brand),
+    2px 0 0 var(--brand),
+    0 -2px 0 var(--brand);
+  color: var(--brand-ink);
+  outline: none;
+}
+
+.sky {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Carries one gull from just off the left edge to just off the right edge, then repeats. */
+.seagull-flight {
+  --seagull-pixel: 2px;
+
+  position: absolute;
+  left: 0;
+  animation-name: fly-across;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.seagull-far {
+  --seagull-pixel: 1px;
+
+  opacity: 0.4;
+}
+
+.seagull-bob {
+  animation: bob-seagull ease-in-out infinite alternate;
+}
+
+/* A window one frame wide. The strip of frames slides behind it. */
+.seagull {
+  width: calc(15 * var(--seagull-pixel));
+  height: calc(7 * var(--seagull-pixel));
+  overflow: hidden;
+}
+
+.seagull-strip {
+  display: block;
+  width: calc(15 * 14 * var(--seagull-pixel));
+  height: calc(7 * var(--seagull-pixel));
+  animation-name: flap-seagull;
+  animation-timing-function: steps(14);
+  animation-iteration-count: infinite;
+}
+
+/* When a list item wraps, the extra lines tuck in under the first so each entry reads as one block. */
+.hanging-indent {
+  padding-left: 1rem;
+  text-indent: -1rem;
+}
+
+/* Links are inline-flex, so they would pick up the negative indent too and slide left. */
+.hanging-indent a {
+  text-indent: 0;
+}
+
+/* Phones: a smaller boy, so the page still fits on one screen. */
+@media (max-width: 639px) {
+  .pixel-boy {
+    height: min(15svh, 7rem);
+  }
+}
+
+.grass {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3.5rem;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.grass-far {
+  z-index: 1;
+  opacity: 0.22;
+}
+
+.grass-back {
+  z-index: 1;
+  opacity: 0.55;
+}
+
+.grass-front {
+  z-index: 3;
+}
+
+.grass-tuft {
+  position: absolute;
+  bottom: 2px;
+  transform-origin: 50% 100%;
+  animation-name: sway-grass;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.grass-ground {
+  position: fixed;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background: #000;
+  pointer-events: none;
+}
+
+
+/* The size of the eye-shaped opening in the eyelids. Registered so it can animate smoothly. */
+@property --eye-width {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
+@property --eye-height {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
+/* Black eyelids with an eye-shaped hole cut out. The hole blinks open twice, then opens all the way. */
+.eyelids {
+  --eye-width: 60vw;
+  --eye-height: 0px;
+  --eye-hole: radial-gradient(
+    ellipse var(--eye-width) var(--eye-height) at 50% 50%,
+    transparent 98%,
+    #000 100%
+  );
+
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  background: #000;
+  pointer-events: none;
+  -webkit-mask-image: var(--eye-hole);
+  mask-image: var(--eye-hole);
+  animation: blink-awake 2000ms 1300ms forwards;
+}
+
+/* The page starts blurry and sharpens as the eyes open, like waking up. Backwards fill only,
+   so the filter goes away afterward and never traps the fixed-position scenery. */
+.page > :not(.eyelids, .intro-text) {
+  animation: wake-focus 2000ms ease-out 1300ms backwards;
+}
+
+.intro-text {
+  position: fixed;
+  z-index: 11;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  font-size: 1rem;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: fade-intro-text 300ms ease-out 1100ms forwards;
+}
+
+@keyframes sway-grass {
+  0%,
+  100% {
+    transform: rotate(-6deg);
+  }
+
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes fly-across {
+  from {
+    transform: translateX(-40px);
+  }
+
+  to {
+    transform: translateX(calc(100vw + 40px));
+  }
+}
+
+@keyframes bob-seagull {
+  from {
+    transform: translateY(-5px);
+  }
+
+  to {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes flap-seagull {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* Shows one ray frame for a quarter of the cycle, then hides it. */
+@keyframes turn-sun-rays {
+  0% {
+    opacity: 1;
+  }
+
+  25%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* A sleepy slit, a blink, a wider look, another blink, then fully open. */
+@keyframes blink-awake {
+  0% {
+    --eye-width: 55vw;
+    --eye-height: 0px;
+    animation-timing-function: ease-out;
+  }
+
+  14% {
+    --eye-width: 60vw;
+    --eye-height: 5vh;
+    animation-timing-function: ease-in;
+  }
+
+  24%,
+  36% {
+    --eye-width: 60vw;
+    --eye-height: 0px;
+    animation-timing-function: ease-out;
+  }
+
+  52% {
+    --eye-width: 70vw;
+    --eye-height: 14vh;
+    animation-timing-function: ease-in;
+  }
+
+  60%,
+  66% {
+    --eye-width: 70vw;
+    --eye-height: 0px;
+    animation-timing-function: cubic-bezier(0.3, 0, 0.2, 1);
+  }
+
+  /* Big enough that the opening clears every corner of the screen. */
+  100% {
+    --eye-width: 120vw;
+    --eye-height: 120vh;
+  }
+}
+
+@keyframes wake-focus {
+  from {
+    filter: blur(8px);
+  }
+
+  70% {
+    filter: blur(2px);
+  }
+
+  to {
+    filter: blur(0);
+  }
+}
+
+@keyframes fade-intro-text {
+  to {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grass-tuft,
+  .sun-rays {
+    animation: none;
+  }
+
+  .sun-rays-0 {
+    opacity: 1;
+  }
+
+  /* Gulls that cannot move would just sit off-screen, so hide them. */
+  .sky {
+    display: none;
+  }
+
+  .eyelids,
+  .intro-text,
+  .page > :not(.eyelids, .intro-text) {
+    animation-duration: 1ms;
+  }
+}
+
+/* Word styles visitors stamp from the toolbar. */
+.word-highlight {
+  background: #ffe94d;
+  box-shadow: 0 0 0 1px #ffe94d;
+}
+
+.word-strikethrough {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
+/* Geist Pixel has one weight, so fake bold with a 1px offset copy that stays crisp. */
+.word-bold {
+  text-shadow: 1px 0 0 currentColor;
+}
+
+.painting .word {
+  cursor: crosshair;
+}
+
+.painting .word:hover {
+  outline: 1px dashed #000;
+  outline-offset: 1px;
+}
+
+.style-tool {
+  border: 1px solid #000;
+  padding: 0 0.5rem;
+  line-height: 1.5rem;
+  cursor: pointer;
+}
+
+.style-tool[aria-pressed='true'] {
+  background: #000;
+  color: #fff;
+}
+
+/* Keep the yellow readable on the black pressed button. */
+.style-tool[aria-pressed='true'] .word-highlight {
+  color: #000;
+}
+
+.style-tool:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
