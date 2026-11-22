@@ -229,13 +229,13 @@
   pointer-events: none;
   -webkit-mask-image: var(--eye-hole);
   mask-image: var(--eye-hole);
-  animation: blink-awake 2000ms 1300ms forwards;
+  animation: blink-awake 2000ms 2200ms forwards;
 }
 
 /* The page starts blurry and sharpens as the eyes open, like waking up. Backwards fill only,
    so the filter goes away afterward and never traps the fixed-position scenery. */
 .page > :not(.eyelids, .intro-text) {
-  animation: wake-focus 2000ms ease-out 1300ms backwards;
+  animation: wake-focus 2000ms ease-out 2200ms backwards;
 }
 
 .intro-text {
@@ -247,7 +247,8 @@
   font-size: 1rem;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  animation: fade-intro-text 300ms ease-out 1100ms forwards;
+  opacity: 0;
+  animation: show-intro-text 2200ms ease-in-out forwards;
 }
 
 @keyframes sway-grass {
@@ -354,8 +355,19 @@
   }
 }
 
-@keyframes fade-intro-text {
-  to {
+/* Black for a moment, "wakey wakey" fades in, holds, then fades out just before the blink. */
+@keyframes show-intro-text {
+  0%,
+  20% {
+    opacity: 0;
+  }
+
+  45%,
+  82% {
+    opacity: 1;
+  }
+
+  100% {
     opacity: 0;
   }
 }
