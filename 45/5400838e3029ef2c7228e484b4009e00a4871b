@@ -1,0 +1,19 @@
+src/App.css
+  s_7b0236547185ef::t_d0697b5ebdeb73 232,238,250-251,358-370
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "455400838e3029ef2c7228e484b4009e00a4871b",
+  "prompts": {},
+  "sessions": {
+    "s_7b0236547185ef": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "02567457-462c-451b-b2e8-a4b2ab4217d7",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Jacob Fu <141651335+FuJacob@users.noreply.github.com>"
+    }
+  }
+}
