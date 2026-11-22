@@ -1,6 +1,8 @@
 .page {
   --ground-offset: 1.5rem;
   --ground-height: 18px;
+  /* Shared by the sun and the seagulls so the sky always matches. */
+  --sky-opacity: 1;
 
   position: relative;
   /* Exactly one screen tall, with no scrolling. */
@@ -69,7 +71,11 @@
   .sun {
     top: -40px;
     left: -30px;
-    opacity: 0.35;
+  }
+
+  /* On phones the sky sits behind the text, so fade it back. */
+  .page {
+    --sky-opacity: 0.35;
   }
 }
 
@@ -89,6 +95,11 @@
     0 -2px 0 var(--brand);
   color: var(--brand-ink);
   outline: none;
+}
+
+.sun,
+.sky {
+  opacity: var(--sky-opacity);
 }
 
 .sky {
@@ -112,8 +123,6 @@
 
 .seagull-far {
   --seagull-pixel: 1px;
-
-  opacity: 0.4;
 }
 
 .seagull-bob {

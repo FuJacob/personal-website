@@ -91,7 +91,7 @@ const roles = [
     company: "hyperwrite",
     brand: brands.hyperwrite,
     href: "https://www.hyperwriteai.com/",
-    role: "engineer, ai predictive writing",
+    role: "engineer, ai writing",
   },
   {
     dates: "05/2026 - 08/2026",
