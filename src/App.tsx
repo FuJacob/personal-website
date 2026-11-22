@@ -31,7 +31,7 @@ function ExternalLink({
 
   return (
     <a
-      className="brand-link inline-flex items-center gap-1 border-b border-black pb-0.5 leading-5"
+      className="brand-link inline-flex items-center gap-1 border-b border-black pb-0.5 leading-tight"
       style={
         { "--brand": brand.color, "--brand-ink": brand.ink } as CSSProperties
       }
@@ -43,7 +43,7 @@ function ExternalLink({
         <Paintable id={paintId}>{children}</Paintable>
       </span>
       <svg
-        className="size-[7px]"
+        className="size-[9px] max-sm:size-[7px]"
         viewBox="0 0 7 7"
         shapeRendering="crispEdges"
         aria-hidden="true"
@@ -121,7 +121,7 @@ const projects = [
     name: "cotabby.app",
     href: "https://cotabby.app/",
     brand: { color: "#4169e1", ink: "#fff" },
-    detail: "ai autocomplete for macos, 15k+ installs and 1,000+ stars",
+    detail: "ai autocomplete for macos, 17k+ installs and 1,100+ stars",
   },
   {
     name: "metro apocalypse",
@@ -443,7 +443,7 @@ function Page() {
         ))}
       </div>
 
-      <article className="mx-auto w-full max-w-lg px-6 pt-16 max-sm:px-4 max-sm:pt-8 pb-[calc(var(--ground-offset)+var(--ground-height)+min(26svh,14rem)+3rem)] font-pixel text-sm leading-6 text-black max-sm:text-xs max-sm:leading-5">
+      <article className="mx-auto w-full max-w-2xl px-6 pt-12 max-sm:px-4 max-sm:pt-8 pb-[calc(var(--ground-offset)+var(--ground-height)+min(26svh,14rem)+3rem)] font-pixel text-lg leading-7 text-black max-sm:text-xs max-sm:leading-5">
         <header className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
           <h1>
             <Paintable id="name">jacob fu</Paintable>
@@ -566,7 +566,7 @@ function Page() {
       {/* Covers the page during the intro, then blinks open like waking eyes. */}
       <div className="eyelids" aria-hidden="true" />
       <p className="intro-text" aria-hidden="true">
-        oh hey
+        wakey wakey
       </p>
     </main>
   );
