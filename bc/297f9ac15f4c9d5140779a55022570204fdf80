@@ -1,0 +1,25 @@
+src/App.tsx
+  h_016505e5d8597d 12-14,218-221,225,228,231-232,234,236-238,242,246-248,253-254,258-261,263-265,527
+  s_7b0236547185ef::t_43410b2cc84cae 35-37,235,302-315,350,415-417,425-428,473,475
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "bc297f9ac15f4c9d5140779a55022570204fdf80",
+  "prompts": {},
+  "humans": {
+    "h_016505e5d8597d": {
+      "author": "Jacob Fu <141651335+FuJacob@users.noreply.github.com>"
+    }
+  },
+  "sessions": {
+    "s_7b0236547185ef": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "02567457-462c-451b-b2e8-a4b2ab4217d7",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Jacob Fu <141651335+FuJacob@users.noreply.github.com>"
+    }
+  }
+}
