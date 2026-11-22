@@ -9,6 +9,9 @@ type Brand = { color: string; ink: string };
 // The site's own yellow paint highlight, for links that have no brand of their own.
 const defaultBrand: Brand = { color: "#ffe94d", ink: "#000" };
 
+// The "leave a mark on any word" toolbar is hidden for now. Flip to true to bring it back.
+const SHOW_STYLE_TOOLBAR = false;
+
 type ExternalLinkProps = {
   href: string;
   brand?: Brand;
@@ -29,7 +32,9 @@ function ExternalLink({
   return (
     <a
       className="brand-link inline-flex items-center gap-1 border-b border-black pb-0.5 leading-5"
-      style={{ "--brand": brand.color, "--brand-ink": brand.ink } as CSSProperties}
+      style={
+        { "--brand": brand.color, "--brand-ink": brand.ink } as CSSProperties
+      }
       href={href}
       target={opensWebsite ? "_blank" : undefined}
       rel={opensWebsite ? "noreferrer" : undefined}
@@ -210,53 +215,54 @@ const grassLayers = grassLayerSettings.map((layer) => {
 });
 
 // The sun is drawn on a pixel grid, one SVG unit per pixel, just like the grass blades.
-const SUN_SIZE = 49
-const SUN_CENTER = 24
-const SUN_RAY_COUNT = 8
-const SUN_FRAME_COUNT = 4
+const SUN_SIZE = 49;
+const SUN_CENTER = 24;
+const SUN_RAY_COUNT = 8;
+const SUN_FRAME_COUNT = 4;
 
 /** Turns every grid cell that passes the test into one path, merging runs along each row. */
 function sunCellsToPath(isFilled: (dx: number, dy: number) => boolean) {
-  const segments: string[] = []
+  const segments: string[] = [];
 
   for (let y = 0; y < SUN_SIZE; y += 1) {
-    let x = 0
+    let x = 0;
     while (x < SUN_SIZE) {
       if (!isFilled(x - SUN_CENTER, y - SUN_CENTER)) {
-        x += 1
-        continue
+        x += 1;
+        continue;
       }
-      let end = x
-      while (end < SUN_SIZE && isFilled(end - SUN_CENTER, y - SUN_CENTER)) end += 1
-      segments.push(`M${x} ${y}h${end - x}v1h-${end - x}z`)
-      x = end
+      let end = x;
+      while (end < SUN_SIZE && isFilled(end - SUN_CENTER, y - SUN_CENTER))
+        end += 1;
+      segments.push(`M${x} ${y}h${end - x}v1h-${end - x}z`);
+      x = end;
     }
   }
 
-  return segments.join('')
+  return segments.join("");
 }
 
 const sunDiscPath = sunCellsToPath((dx, dy) => {
-  const distance = Math.hypot(dx, dy)
-  return distance > 9.5 && distance <= 11.5
-})
+  const distance = Math.hypot(dx, dy);
+  return distance > 9.5 && distance <= 11.5;
+});
 
 // Each frame turns the rays a little further. Every frame is redrawn on the grid,
 // so the sun looks like it turns without blurring the pixels the way a CSS rotation would.
 const sunRayFrames = Array.from({ length: SUN_FRAME_COUNT }, (_, frame) => {
-  const rayGap = (2 * Math.PI) / SUN_RAY_COUNT
-  const offset = (frame / SUN_FRAME_COUNT) * rayGap
+  const rayGap = (2 * Math.PI) / SUN_RAY_COUNT;
+  const offset = (frame / SUN_FRAME_COUNT) * rayGap;
 
   return sunCellsToPath((dx, dy) => {
     for (let ray = 0; ray < SUN_RAY_COUNT; ray += 1) {
-      const angle = offset + ray * rayGap
-      const along = dx * Math.cos(angle) + dy * Math.sin(angle)
-      const across = -dx * Math.sin(angle) + dy * Math.cos(angle)
-      if (along >= 14 && along <= 21 && Math.abs(across) <= 1) return true
+      const angle = offset + ray * rayGap;
+      const along = dx * Math.cos(angle) + dy * Math.sin(angle);
+      const across = -dx * Math.sin(angle) + dy * Math.cos(angle);
+      if (along >= 14 && along <= 21 && Math.abs(across) <= 1) return true;
     }
-    return false
-  })
-})
+    return false;
+  });
+});
 
 // Seagull flap frames on a 15 x 7 pixel grid. The body stays on the same row in every frame.
 const SEAGULL_WIDTH = 15;
@@ -293,9 +299,20 @@ const seagullFrames = {
 
 // Two flaps, then a glide, the way gulls ride the wind.
 const seagullSequence: (keyof typeof seagullFrames)[] = [
-  "up", "glide", "down", "glide",
-  "up", "glide", "down", "glide",
-  "glide", "glide", "glide", "glide", "glide", "glide",
+  "up",
+  "glide",
+  "down",
+  "glide",
+  "up",
+  "glide",
+  "down",
+  "glide",
+  "glide",
+  "glide",
+  "glide",
+  "glide",
+  "glide",
+  "glide",
 ];
 
 // Every frame sits side by side in one strip. CSS slides the strip one frame at a time.
@@ -330,7 +347,7 @@ const seagulls = (() => {
   });
 })();
 
-type BoyPose ="left" | "right" | "up-left" | "up-center" | "up-right";
+type BoyPose = "left" | "right" | "up-left" | "up-center" | "up-right";
 
 const boyImages: Record<BoyPose, string> = {
   left: "/boy-left.png",
@@ -395,7 +412,9 @@ function Page() {
         {seagulls.map((gull, index) => (
           <div
             key={index}
-            className={gull.isFar ? "seagull-flight seagull-far" : "seagull-flight"}
+            className={
+              gull.isFar ? "seagull-flight seagull-far" : "seagull-flight"
+            }
             style={{
               top: `${gull.top}%`,
               animationDuration: `${gull.duration}s`,
@@ -403,7 +422,10 @@ function Page() {
               animationDirection: gull.flipped ? "reverse" : "normal",
             }}
           >
-            <div className="seagull-bob" style={{ animationDuration: `${gull.bobDuration}s` }}>
+            <div
+              className="seagull-bob"
+              style={{ animationDuration: `${gull.bobDuration}s` }}
+            >
               <div className="seagull">
                 <svg
                   className="seagull-strip"
@@ -448,12 +470,9 @@ function Page() {
         </p>
         <p className="mt-4">
           <Paintable id="bio-2">
-            {`right now i'm at ramp in new york, building accounting software. if you ever want to`}
+            {`right now i'm at ramp in new york. if you ever want to`}
           </Paintable>{" "}
-          <ExternalLink
-            href="mailto:jjacobfu@gmail.com"
-            paintId="bio-2-chat"
-          >
+          <ExternalLink href="mailto:jjacobfu@gmail.com" paintId="bio-2-chat">
             chat
           </ExternalLink>
           <Paintable id="bio-2-end">
@@ -505,7 +524,7 @@ function Page() {
           ))}
         </ul>
 
-        <StyleToolbar />
+        {SHOW_STYLE_TOOLBAR && <StyleToolbar />}
       </article>
 
       <img
